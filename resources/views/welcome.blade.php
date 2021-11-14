@@ -22,6 +22,6 @@
     </head>
     <body class="antialiased">
   <div id="app"></div>
-  <script src="{{ secure_asset('js/index.js') }}"></script>
+  <script src="{{ asset('js/index.js') }}"></script>
 </body>
 </html>
