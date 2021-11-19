@@ -1839,12 +1839,10 @@ function (_super) {
         isDragging = false;
         lastPosX = posX;
         lastPosY = posY;
-        console.log(lastPosX, lastPosY);
       } else {
         stage.style.transform = 'translate(' + posX + 'px,' + posY + 'px)';
         widthstage.style.transform = 'translate(' + posX + 'px,' + posY + 'px)';
         heightstage.style.transform = 'translate(' + posX + 'px,' + posY + 'px)';
-        console.log(lastPosX, lastPosY);
       }
     });
     var heightmc = new hammerjs_1["default"].Manager(heightstage);
