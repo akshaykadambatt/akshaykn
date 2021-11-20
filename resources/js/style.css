@@ -266,3 +266,6 @@ h2 {
   top: 0;
   transition: opacity 0.14s, box-shadow 2s, top 1s;
 }
+div:hover > .controls{
+  opacity: 0;
+}

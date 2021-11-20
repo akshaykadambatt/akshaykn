@@ -155,9 +155,9 @@ class Welcome extends React.Component<ComponentProps, MyState> {
             <div>
                 <div contentEditable ref={this.masterRef} className={classes.box}>
                 </div>
-                <div ref={this.heightRef} style={ { width: `${ this.state.width }px` } } className={classes.handle}><div className={classes.handleHeight}></div></div>
+                <div ref={this.heightRef} style={ { width: `${ this.state.width }px` } } className={classes.handle + ' controls'}><div className={classes.handleHeight}></div></div>
             </div>
-            <div ref={this.widthRef} style={ { height: `${ this.state.height }px` } } className={classes.handle + ' ' + classes.styleFix}><div className={classes.handleWidth}></div></div>
+            <div ref={this.widthRef} style={ { height: `${ this.state.height }px` } } className={classes.handle + ' ' + classes.styleFix + ' controls'}><div className={classes.handleWidth}></div></div>
         </div>
         )
     }
