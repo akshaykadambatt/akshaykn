@@ -2,30 +2,51 @@ import React, {FunctionComponent, useRef, useState,useEffect } from 'react';
 import { createUseStyles } from "react-jss";
 import { AppProps } from "myModule";
 import Hammer from "hammerjs";
-import Welcome from "./components/frame";
+import { Button, Navlink } from "../../components/Button";
+import Frame from "./components/frame";
 const Editor:FunctionComponent<AppProps> = ({theme}) => {
-  const [count, setCount] = useState(0) // Name it however you wish
+  const [countImage, setCountImage] = useState(0) // Name it however you wish
+  const [countText, setCountText] = useState(0) // Name it however you wish
+  const [countDownload, setCountDownload] = useState(0) // Name it however you wish
   const useStyles = createUseStyles({
         editor: {
           color: "red",
           display: "flex",
-          height: "70vh"
+          height: "84vh",
+          flexWrap: "wrap",
+          border: "2px solid #b5b0b0",
+          paddingTop: "9vh"
+        },
+        buttons: {
+          display: "flex",
+          justifyContent: "space-around",
+          backdropFilter: "blur(10px)",
+          padding: "10px 10px 20px 10px"
+        },
+        editorWrap: {
+          overflow: "hidden"
         }
       });
   const classes = useStyles({ theme });
     return (
       <>
-      Spacer
-        <>Editor</>
-        <div className={classes.editor}>
-            Editable
-            { [...Array(count)].map((_, i) => <Welcome key={i} />) }
-        </div>
-        <div>
-            Elements
-            <button onClick={() => setCount(count + 1)}>Click me</button>
-    
-
+        <div className={classes.editorWrap}>
+          <div className={classes.editor}>
+              { [...Array(countImage)].map((_, i) => <Frame type="image" key={i} />) }
+              { [...Array(countText)].map((_, i) => <Frame type="text" key={i} />) }
+              { [...Array(countDownload)].map((_, i) => <Frame type="downloader" key={i} />) }
+          </div>
+          <div className={classes.buttons}>
+              <div onClick={() => setCountImage(countImage + 1)}>
+                <Button text="Add image" />
+              </div>
+              <div onClick={() => setCountText(countText + 1)}>
+                <Button text="Add text" />
+              </div>
+              <div onClick={() => setCountDownload(countDownload + 1)}>
+                <Button text="Download image" />
+              </div>
+          </div>
         </div>
       </>
     );

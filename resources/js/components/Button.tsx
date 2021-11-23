@@ -5,11 +5,12 @@ interface Props {
     text:string,
     to:string
 }
-export function Button(props:Props) {
+interface bProps {
+  text:string
+}
+export function Button(props:bProps) {
   return (
-    <>
-      <button className="button reveal">{props.text}</button>
-    </>
+      <div className="button reveal">{props.text}<VscArrowRight className="icon" /></div>
   );
 }
 export function Navlink(props:Props) {

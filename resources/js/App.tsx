@@ -18,7 +18,7 @@ export default function App() {
   const [navSpacerHeight, setNavSpacerHeight] = useState('0');
 
   React.useEffect(() => {
-    if(location.pathname == '/'){
+    if(location.pathname == '/' || location.pathname == '/works/projects/editor'){
       // console.log(navSpacerElem.current);
       setNavSpacerHeight('0');
     }else{
