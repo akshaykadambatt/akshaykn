@@ -1,14 +1,12 @@
-import React, {FunctionComponent, useRef, useState,useEffect, RefObject } from 'react';
-import withStyles, { createUseStyles } from "react-jss";
-import nested from 'jss-plugin-nested';
+import React from 'react';
+import withStyles from "react-jss";
 import { AppProps } from "myModule";
 import Hammer from "hammerjs";
-import ReactDOM from 'react-dom';
 import Dropper from "./dropper";
 import Texter from "./texter";
 import Control from "./control";
 import Slider from '@mui/material/Slider';
-import { VscArrowRight, VscActivateBreakpoints, VscTrash, VscDebugStepBack, VscMove, VscTextSize } from "react-icons/vsc";
+import { VscTrash, VscDebugStepBack, VscMove, VscTextSize } from "react-icons/vsc";
 import { BiImage, BiFontColor, BiMinusFront, BiBold } from "react-icons/bi";
 import { RiDownloadLine } from "react-icons/ri";
 import html2canvas from 'html2canvas';
@@ -208,7 +206,6 @@ class Frame extends React.Component<ComponentProps, MyState> {
           textBackColor: 'transparent'
         };
       }
-    
     masterRef = React.createRef<HTMLInputElement>();
     heightRef = React.createRef<HTMLInputElement>();
     widthRef = React.createRef<HTMLInputElement>();
@@ -233,7 +230,6 @@ class Frame extends React.Component<ComponentProps, MyState> {
           this.setState({ y: y });
         }
         mc.on('pan', function(e) {
-          // return false
           if(e.target.classList.contains('disableHammer')) return false
           if(hasParentWithMatchingSelector(e.target, '.disableHammer')) return false
           if(!Boolean(Number(localStorage.getItem('control')))) return false
@@ -297,11 +293,7 @@ class Frame extends React.Component<ComponentProps, MyState> {
             el.style.width=posX+"px";
             this.setState({ width: posX });
         });
-        
-        
-        
     }
-    
     toggleShowComponentState = () => {
       this.setState({ showComponent: this.state.showComponent? false : true });
     }
@@ -327,10 +319,9 @@ class Frame extends React.Component<ComponentProps, MyState> {
     handleDownload = () => {
       let downloader = this.downloaderRef.current as HTMLElement;
       if(downloader){    
-        // setTimeout(() => {
           html2canvas(document.getElementById('download') as HTMLElement,{
             useCORS: true,
-            scale: 2,
+            scale: 3,
             x: downloader.getBoundingClientRect().x,
             y: downloader.getBoundingClientRect().top,
             height: downloader.getBoundingClientRect().height,
@@ -345,7 +336,6 @@ class Frame extends React.Component<ComponentProps, MyState> {
             link.click();
             canvas.remove();
           });
-        // }, 1000);
       }
     }
     render(): JSX.Element {
@@ -385,7 +375,6 @@ class Frame extends React.Component<ComponentProps, MyState> {
                   {this.props.type == "image" &&
                     <>
                     <Control ev={this.toggleControlToDropper}><VscMove /></Control>
-                    {/* <input className={classes.sliderBottom + " disableHammer"} type="range" min="1" max="100" defaultValue="50"></input> */}
                     </>
                   }
                   {/* Slider */}
