@@ -31,7 +31,7 @@ const Editor:FunctionComponent<AppProps> = ({theme}) => {
     return (
       <>
         <div className={classes.editorWrap}>
-          <div className={classes.editor}>
+          <div className={classes.editor} id="download">
               { [...Array(countImage)].map((_, i) => <Frame type="image" key={i} />) }
               { [...Array(countText)].map((_, i) => <Frame type="text" key={i} />) }
               { [...Array(countDownload)].map((_, i) => <Frame type="downloader" key={i} />) }

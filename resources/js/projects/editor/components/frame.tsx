@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useRef, useState,useEffect } from 'react';
+import React, {FunctionComponent, useRef, useState,useEffect, RefObject } from 'react';
 import withStyles, { createUseStyles } from "react-jss";
 import nested from 'jss-plugin-nested';
 import { AppProps } from "myModule";
@@ -8,8 +8,8 @@ import Dropper from "./dropper";
 import Texter from "./texter";
 import Control from "./control";
 import Slider from '@mui/material/Slider';
-import { VscArrowRight, VscActivateBreakpoints, VscTrash, VscDebugStepBack, VscMove } from "react-icons/vsc";
-import { BiImage, BiFontColor, BiMinusFront } from "react-icons/bi";
+import { VscArrowRight, VscActivateBreakpoints, VscTrash, VscDebugStepBack, VscMove, VscTextSize } from "react-icons/vsc";
+import { BiImage, BiFontColor, BiMinusFront, BiBold } from "react-icons/bi";
 import { RiDownloadLine } from "react-icons/ri";
 import html2canvas from 'html2canvas';
 type JSSStyles = { [keys: string]: React.CSSProperties | JSSStyles };
@@ -21,7 +21,12 @@ interface ComponentProps {
 interface MyState {
     height?: Number,
     width?: Number,
+    x?: number,
+    y?: number,
     showComponent?: boolean,
+    boldText?: boolean,
+    fontSizeSlider?: boolean,
+    fontSize?: String,
     controlToDropper?: boolean,
     textColor?: String | undefined,
     textBackColor?: String | undefined
@@ -78,11 +83,8 @@ const styles:JSSStyles = {
       one: {
         display: "flex",
         flexWrap: "nowrap",
-        height: "100%",
-        width: "100%",
-        position: "absolute",
-        top: "0",
-        left: "0",
+        height: "10px",
+        width: "10px",
         '&:hover $handle': {
           opacity: '1'
         },
@@ -152,16 +154,15 @@ const styles:JSSStyles = {
         fontSize: "13px",
         zIndex: -10
       },
-      sliderBottom: {
-        width: "100%",
-        margin: "-12px 4px 0px 0px",
-        height: "37px !important"
-      },
-      sliderRight: {
-        minHeight: "60px",
-        height: "100%",
-        width: "10px",
-        margin: "0 0 7px 11px",
+      slider: {
+        position: "absolute",
+        transition: "all 0.3s ease 0s",
+        height: "100px",
+        width: "200px",
+        background: "rgb(246, 246, 246)",
+        padding: "10px",
+        borderRadius: "10px",
+        boxShadow: "rgb(145 145 145 / 21%) 0px 0px 0px 1px, rgb(173 163 163 / 13%) -1px 5px 14px 0px",
       },
       noEvents: {
         pointerEvents: "none"
@@ -176,7 +177,11 @@ const styles:JSSStyles = {
         padding: "0"
       },
       downloader: {
-        backdropFilter: 'none'
+        backdropFilter: 'none',
+        minHeight: "262px",
+        minWidth: "250px",
+        height: "100%",
+        width: "100%",
       }
   };
   function hasParentWithMatchingSelector (target:Node, selector:string) {
@@ -192,7 +197,12 @@ class Frame extends React.Component<ComponentProps, MyState> {
         this.state = {
           height: 0,
           width: 0,
+          x: 0,
+          y: 0,
           showComponent: true,
+          fontSizeSlider: false,
+          fontSize: "18px",
+          boldText: false,
           controlToDropper: false,
           textColor: 'red',
           textBackColor: 'transparent'
@@ -202,7 +212,8 @@ class Frame extends React.Component<ComponentProps, MyState> {
     masterRef = React.createRef<HTMLInputElement>();
     heightRef = React.createRef<HTMLInputElement>();
     widthRef = React.createRef<HTMLInputElement>();
-    downloader = React.createRef<HTMLInputElement>();
+    downloaderRef = React.createRef<HTMLInputElement>();
+    sliderRef = React.createRef<HTMLInputElement>();
     componentDidMount(){
         const stage = this.masterRef.current as HTMLElement;
         const widthstage = this.widthRef.current as HTMLElement;
@@ -217,6 +228,10 @@ class Frame extends React.Component<ComponentProps, MyState> {
         let lastPosX = 0;
         let lastPosY = 0;
         let isDragging = false;
+        const XY = (x:number,y:number) => {
+          this.setState({ x: x });
+          this.setState({ y: y });
+        }
         mc.on('pan', function(e) {
           // return false
           if(e.target.classList.contains('disableHammer')) return false
@@ -234,6 +249,7 @@ class Frame extends React.Component<ComponentProps, MyState> {
               stage.style.transform = 'translate('+posX+'px,'+posY+'px)';
               widthstage.style.transform = 'translate('+posX+'px,'+posY+'px)';
               heightstage.style.transform = 'translate('+posX+'px,'+posY+'px)';
+              XY(posX,posY);
           }
         });
 
@@ -281,25 +297,22 @@ class Frame extends React.Component<ComponentProps, MyState> {
             el.style.width=posX+"px";
             this.setState({ width: posX });
         });
-        const downloader = this.downloader.current as HTMLElement;
-        setTimeout(() => {
-          html2canvas(downloader,{
-            useCORS: true,
-          }).then(function(canvas) {
-            document.body.appendChild(canvas);
-            var myImage = canvas.toDataURL("image/png");
-            var link = document.createElement("a");
-            document.body.appendChild(link);
-            link.setAttribute("href", myImage);
-            link.setAttribute("download", 'yoo.png');
-            link.click();
-          });
-        }, 1000);
+        
+        
         
     }
     
     toggleShowComponentState = () => {
       this.setState({ showComponent: this.state.showComponent? false : true });
+    }
+    toggleTextBoldState = () => {
+      this.setState({ boldText: this.state.boldText? false : true });
+    }
+    handleFontSizeState = (event:React.MouseEvent<HTMLElement>) => {
+      this.setState({ fontSizeSlider: this.state.fontSizeSlider? false : true });
+    }
+    handleFontSizeChange = (event:MouseEvent ) => {
+      this.setState({ fontSize: (event.target as any).value+"px" });
     }
     toggleControlToDropper = () => {
       this.setState({ controlToDropper: this.state.controlToDropper? false : true });
@@ -311,18 +324,42 @@ class Frame extends React.Component<ComponentProps, MyState> {
     handleBackgroundColorChange = (event:React.FormEvent<HTMLInputElement>) => {
       this.setState({ textBackColor: event.currentTarget.value });
     }
+    handleDownload = () => {
+      let downloader = this.downloaderRef.current as HTMLElement;
+      if(downloader){    
+        // setTimeout(() => {
+          html2canvas(document.getElementById('download') as HTMLElement,{
+            useCORS: true,
+            scale: 2,
+            x: downloader.getBoundingClientRect().x,
+            y: downloader.getBoundingClientRect().top,
+            height: downloader.getBoundingClientRect().height,
+            width: downloader.getBoundingClientRect().width,
+          }).then(function(canvas) {
+            document.body.appendChild(canvas);
+            var myImage = canvas.toDataURL("image/png");
+            var link = document.createElement("a");
+            document.body.appendChild(link);
+            link.setAttribute("href", myImage);
+            link.setAttribute("download", 'yoo.png');
+            link.click();
+            canvas.remove();
+          });
+        // }, 1000);
+      }
+    }
     render(): JSX.Element {
       const {classes, children} = this.props;
       return(
         <>
-        <div ref={this.downloader} className={classes.one + ' ' + ((this.state.showComponent)? null:classes.hidden)}>
+        <div className={classes.one + ' ' + ((this.state.showComponent)? null:classes.hidden)}>
             <div>
                 <div ref={this.masterRef} className={classes.box + ' ' + (this.props.type == "downloader" && classes.downloader)}>
                 {this.props.type == "text" &&
-                <Texter color={this.state.textColor} background={this.state.textBackColor} />
+                <Texter color={this.state.textColor} size={this.state.fontSize} bold={this.state.boldText} background={this.state.textBackColor} />
                 }
                 {this.props.type == "downloader" &&
-                <>aaaa</>
+                <div ref={ this.downloaderRef } className={classes.downloader}></div>
                 }
                 {this.props.type == "image" &&
                   <Dropper control={this.state.controlToDropper} />
@@ -330,14 +367,16 @@ class Frame extends React.Component<ComponentProps, MyState> {
                 <div className={classes.controls+' '+classes.controlsRight}>
                   {this.props.type == "text" &&
                     <>
-                      <div className={classes.icons}><VscActivateBreakpoints /></div> {/* Color Picker */}
+                      {/* <div className={classes.icons}><VscActivateBreakpoints /></div> Color Picker */}
+                      <Control ev={this.toggleTextBoldState}><BiBold /></Control>{/* Bold */}
+                      <Control ev={this.handleFontSizeState}><VscTextSize /></Control>{/* Bold */}
                       <label className={classes.icons}><BiFontColor /><input onChange={this.handleFontColorChange} type="color" className={classes.colorInput}></input></label> {/* Background */}
-                      <label className={classes.icons}><BiImage /><input onChange={this.handleBackgroundColorChange} type="color" className={classes.colorInput}></input></label> {/* Background */}
+                      <label className={classes.icons}><BiImage /><input onChange={this.handleBackgroundColorChange} type="color" className={classes.colorInput}></input></label> 
                     </>
                   }
                   {this.props.type == "downloader" &&
                     <>
-                      <div className={classes.icons}><RiDownloadLine /></div> {/* Color Picker */}
+                      <div className={classes.icons} onClick={this.handleDownload}><RiDownloadLine /></div> {/* Color Picker */}
                     </>
                   }
                   <div className={classes.icons}><BiMinusFront /></div> {/* Bring to front */}
@@ -364,6 +403,7 @@ class Frame extends React.Component<ComponentProps, MyState> {
             <Control ev={this.toggleShowComponentState}><VscDebugStepBack /> Undo</Control>{/* Delete */}
           </div> 
         }
+        {this.state.fontSizeSlider? <div ref={this.widthRef} style={{top: `${this.state.y as number+110}px`,left: `${this.state.x as number+220}px`}} className={classes.slider}><Slider onChange={(e:Event)=>{this.handleFontSizeChange(e as MouseEvent );}} /></div>:null}
         </>
       )
   }
