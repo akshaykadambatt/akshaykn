@@ -145,6 +145,7 @@ const Navigation:FunctionComponent<AppProps> = ({ theme }) => {
             className={isActive =>
               classes.navLink + (!isActive ? classes.active : "")
             }
+            onClick={() => setMenu((prevMenu) => !prevMenu)}
             to="/"
           >
             {" "}
@@ -154,6 +155,7 @@ const Navigation:FunctionComponent<AppProps> = ({ theme }) => {
             className={isActive =>
               classes.navLink + (!isActive ? classes.active : "")
             }
+            onClick={() => setMenu((prevMenu) => !prevMenu)}
             to="/works"
           >
             {" "}
@@ -163,6 +165,7 @@ const Navigation:FunctionComponent<AppProps> = ({ theme }) => {
             className={isActive =>
               classes.navLink + (!isActive ? classes.active : "")
             }
+            onClick={() => setMenu((prevMenu) => !prevMenu)}
             to="/blog"
           >
             {" "}
@@ -172,6 +175,7 @@ const Navigation:FunctionComponent<AppProps> = ({ theme }) => {
             className={isActive =>
               classes.navLink + (!isActive ? classes.active : "")
             }
+            onClick={() => setMenu((prevMenu) => !prevMenu)}
             to="/about"
           >
             {" "}

@@ -389,7 +389,7 @@ class Frame extends React.Component<ComponentProps, MyState> {
           <div className={classes.iconsUndo}>
             {/* Somehow derive values like {50% 50%} from an input 
             method for adding to background-position style */}
-            <Control ev={this.toggleShowComponentState}><VscDebugStepBack /> Undo</Control>{/* Delete */}
+            <Control ev={this.toggleShowComponentState}><VscDebugStepBack /> Undoo</Control>{/* Delete */}
           </div> 
         }
         {this.state.fontSizeSlider? <div ref={this.widthRef} style={{top: `${this.state.y as number+110}px`,left: `${this.state.x as number+220}px`}} className={classes.slider}><Slider onChange={(e:Event)=>{this.handleFontSizeChange(e as MouseEvent );}} /></div>:null}
