@@ -84,7 +84,7 @@ export default function Table() {
          Footer: (column:any) => {
             return column.rows.reduce((sum:number, row:any) => row.id + sum, 0)
           },
-         Filter: ColumnFilter
+         Filter: false
        },
      ],
      []
