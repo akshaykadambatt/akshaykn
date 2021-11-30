@@ -7,10 +7,11 @@ import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import Editor from "./projects/editor/Editor";
+import Table from "./projects/react-table/table";
 import "./style.css";
 import { useEffect, useState } from "react";
 import ScrollReveal from "scrollreveal";
-
+import ScrollToTop from "./components/ScrollToTop";
 
 export default function App() {
   const navSpacerElem = useRef(null);
@@ -142,12 +143,14 @@ export default function App() {
         <Navigation theme={theme} />
       </div>
       <div ref={navSpacerElem} style={{height:navSpacerHeight}}></div>
+        <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home theme={theme}/>} />
         <Route path="/about/*" element={<About theme={theme}/>} />
         <Route path="/works/*" element={<Works theme={theme}/>} />
         <Route path="/blog/*" element={<Blog theme={theme}/>} />
         <Route path="/works/projects/editor" element={<Editor theme={theme}/>} />
+        <Route path="/works/projects/react-table" element={<Table/>} />
       </Routes>
       <Footer />
     </>

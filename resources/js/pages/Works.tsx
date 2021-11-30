@@ -12,6 +12,7 @@ const Works:FunctionComponent<AppProps> = ({theme}) => {
         </div>
         <>Works</>
         <Navlink to="./projects/editor" text="Editor project" />
+        <Navlink to="./projects/react-table" text="react-table" />
       </>
     );
   };
