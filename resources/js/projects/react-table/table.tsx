@@ -1,63 +1,123 @@
-import React from 'react'
-import { useTable } from 'react-table'
+import React, {FunctionComponent, useState} from 'react'
+import 'regenerator-runtime/runtime';
+import { useTable, useSortBy, useFilters, useGlobalFilter, useAsyncDebounce  } from 'react-table'
  
+//START GLOBAL FILTER CODE
+interface Props {
+    filter: string,
+    setFilter: React.Dispatch<React.SetStateAction<string>>
+}
+const GlobalFilter:FunctionComponent<Props> = ({ filter, setFilter }) => {
+    const [value, setValue] = useState(filter)
+    const onChange = useAsyncDebounce(value => {
+      setFilter(value || undefined)
+    }, 1)
+
+    return (
+      <span>
+        Search:
+        <input
+          value={value || ''}
+          onChange={e => {
+            setValue(e.target.value)
+            onChange(e.target.value)
+          }}
+        />
+      </span>
+    )
+  }
+//END GLOBAL FILTER CODE
+
+//START COLUMN FILTER
+interface Propss {
+    column: any
+}
+const ColumnFilter:FunctionComponent<Propss> = ({ column }) => {
+    const { filterValue, setFilter } = column
+    return(
+        <span>
+            search: 
+            <input type="text"
+            value = {filterValue||""}
+            onChange={(e:any)=>setFilter(e.target.value)}
+            />
+        </span>
+    )
+}
+
+//END COLUMN FILTER
+
+
 export default function Table() {
    const data = React.useMemo(
      () => [
        {
-         col1: 'Hello',
+         colA: 'Hello',
          col2: 'World',
        },
        {
-         col1: 'react-table',
+         colA: 'react-table',
          col2: 'rocks',
        },
        {
-         col1: 'whatever',
+         colA: 'whatever',
          col2: 'you want',
-       },
+       },{
+        colA: 'Ahatever',
+        col2: 'you want',
+      },
      ],
      []
    )
  
-   const columns :any = React.useMemo(
+   const columns: any  = React.useMemo(
      () => [
        {
-         Header: 'Column 1',
-         accessor: 'col1', // accessor is the "key" in the data
+         Header: 'Column A',
+         accessor: 'colA', // accessor is the "key" in the data
+         Footer: 'Name',
+         Filter: ColumnFilter
        },
        {
-         Header: 'Column 2',
+         Header: 'Column B',
          accessor: 'col2',
+         Footer: (column:any) => {
+            return column.rows.reduce((sum:number, row:any) => row.id + sum, 0)
+          },
+         Filter: ColumnFilter
        },
      ],
      []
    )
- 
    const {
      getTableProps,
      getTableBodyProps,
      headerGroups,
      rows,
+     footerGroups,
+     state,
+     setGlobalFilter,
      prepareRow,
-   } = useTable({ columns, data })
+   } = useTable({ columns, data }, useFilters, useGlobalFilter, useSortBy)
  
+   const { globalFilter } = state
+
    return (
-     <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
+       <>
+       <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+     <table {...getTableProps()}>
        <thead>
          {headerGroups.map(headerGroup => (
            <tr {...headerGroup.getHeaderGroupProps()}>
              {headerGroup.headers.map(column => (
-               <th
-                 {...column.getHeaderProps()}
-                 style={{
-                   borderBottom: 'solid 3px red',
-                   background: 'aliceblue',
-                   color: 'black',
-                   fontWeight: 'bold',
-                 }}
-               >
+               <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                  {column.render('Header')}
+                 {column.isSorted
+                      ? column.isSortedDesc
+                        ? ' 🔽'
+                        : ' 🔼'
+                      : ''}
+                 {column.canFilter ? column.render('Filter'):null}
                </th>
              ))}
            </tr>
@@ -70,14 +130,7 @@ export default function Table() {
              <tr {...row.getRowProps()}>
                {row.cells.map(cell => {
                  return (
-                   <td
-                     {...cell.getCellProps()}
-                     style={{
-                       padding: '10px',
-                       border: 'solid 1px gray',
-                       background: 'papayawhip',
-                     }}
-                   >
+                   <td {...cell.getCellProps()}>
                      {cell.render('Cell')}
                    </td>
                  )
@@ -86,6 +139,16 @@ export default function Table() {
            )
          })}
        </tbody>
+       <tfoot>
+        {footerGroups.map(group => (
+          <tr {...group.getFooterGroupProps()}>
+            {group.headers.map(column => (
+              <td {...column.getFooterProps()}>{column.render('Footer')}</td>
+            ))}
+          </tr>
+        ))}
+      </tfoot>
      </table>
+     </>
    )
  }

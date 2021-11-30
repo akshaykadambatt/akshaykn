@@ -10,7 +10,7 @@ export default function Entry() {
   useEffect(() => {
     setTimeout(() => {
       setState(1);
-    }, 500); 
+    }, 100); 
   }, [state]);
   return (
     <div>
