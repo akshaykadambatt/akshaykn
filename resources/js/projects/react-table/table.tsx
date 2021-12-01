@@ -1,6 +1,7 @@
-import React, {FunctionComponent, ReactEventHandler, useState} from 'react'
+import React, {FunctionComponent, ReactEventHandler, useEffect, useState} from 'react'
 import 'regenerator-runtime/runtime';
 import { useTable, useSortBy, useFilters, useGlobalFilter, useAsyncDebounce  } from 'react-table'
+import { Button, FormControl, InputLabel, MenuItem, Select, Slider, TextField } from '@mui/material';
  
 //START GLOBAL FILTER CODE
 interface Props {
@@ -16,7 +17,10 @@ const GlobalFilter:FunctionComponent<Props> = ({ filter, setFilter }) => {
     return (
       <span>
         Search:
-        <input
+        <TextField 
+          id="outlined-basic" 
+          label="Search" 
+          variant="outlined" 
           value={value || ''}
           onChange={e => {
             setValue(e.target.value)
@@ -36,8 +40,10 @@ const ColumnFilter:FunctionComponent<Propss> = ({ column }) => {
     const { filterValue, setFilter } = column
     return(
         <span>
-            search: 
-            <input type="text"
+            <TextField 
+            id="outlined-basic" 
+            label="Search" 
+            variant="outlined" 
             value = {filterValue||""}
             onChange={(e:any)=>setFilter(e.target.value)}
             />
@@ -75,18 +81,19 @@ const EqualFilter:FunctionComponent<Propss2> = ({
   }, [id, preFilteredRows])
 
   return (
-    <>
-      <input
-        type="range"
+    <FormControl fullWidth>
+      <Slider 
+        aria-label="Volume" 
+        valueLabelDisplay="auto"
         min={min}
         max={max+10}
         value={filterValue || min}
-        onChange={e => {
-          setFilter(parseInt(e.target.value, 10))
-        }}
+        onChange={(e: any) => 
+          setFilter(parseInt(e.target?.value, 10))
+        }
       />
-      <button onClick={() => setFilter(undefined)}>Off</button>
-    </>
+      <Button variant="contained" onClick={() => setFilter(undefined)} >Off</Button>
+    </FormControl>
   )
 }
 //END COLUMN FILTER
@@ -107,35 +114,53 @@ const DropdownFilter:FunctionComponent<Propss3> = ({
     return [...Array.from(options.values())]
   }, [id, preFilteredRows])
 
-  // Render a multi-select box
   return (
-    <select
-      value={filterValue}
-      onChange={e => {
-        setFilter(e.target.value || undefined)
-      }}
-    >
-      <option value="">All</option>
-      {options.map((option:any, i) => (
-        <option key={i} value={option}>
-          {option}
-        </option>
-      ))}
-    </select>
+    <>
+    <FormControl fullWidth>
+      <InputLabel id="demo-simple-select-label">Status</InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        label="Status"
+        value={filterValue || ''} //without || '' there will be error that filterValue is undefined.
+        onChange={e => {
+          setFilter(e.target.value || undefined)
+        }}
+      >
+        <MenuItem value="">All</MenuItem>
+        {options.map((option:any, i) => (
+          <MenuItem key={i} value={option}>
+            {option}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+    </>
   )
 }
 //END DROPDOWN FILTER
+
 export default function Table() {
+function customFilterFunction(rows:any, id:any, filterValue:any) {
+  return rows.filter((row: { original: { col6: number; }; }) => row.original.col6 >= filterValue)
+}
    const data = React.useMemo(
      () => [
-       {colA: 'Hello',col2: 'World',col3: 33,col4: 'active',},
-       {colA: 'react-table',col2: 'rocks',col3: 98,col4: 'inactive',},
-       {colA: 'whatever',col2: 'you want',col3: 256,col4: 'active',},
-       {colA: 'Ahatever',col2: 'you want',col3: 54,col4: 'inactive',},
+       {colA: 'Hello',col2: 'World',col3: 13,col4: 'active',col5: 'up',col6: 3},
+       {colA: 'react-table',col2: 'rocks',col3: 48,col4: 'inactive',col5: 'up',col6: 9},
+       {colA: 'whatever',col2: 'you want',col3: 76,col4: 'active',col5: 'down',col6: 14},
+       {colA: 'Ahatever',col2: 'you want',col3: 24,col4: 'inactive',col5: 'up',col6: 5},
      ],
      []
    )
- 
+   const options = React.useMemo(() => {
+    const options = new Set()
+      data.forEach((row:any) => {
+        options.add(row.col4)
+      })
+      return [...Array.from(options.values())]
+    }, [data])
+
    const columns: any  = React.useMemo(
      () => [
        {
@@ -148,7 +173,7 @@ export default function Table() {
          Header: 'Column B',
          accessor: 'col2',
          Footer: (column:any) => {
-            return column.rows.reduce((sum:number, row:any) => row.id + sum, 0)
+            return <>Total {column.rows.reduce((sum:number, row:any) => parseInt(row.id) + sum, 0)}</>
           },
          Filter: ColumnFilter,
          disableSortBy: true
@@ -156,19 +181,37 @@ export default function Table() {
         Header: 'Number',
         accessor: 'col3',
         Footer: (column:any) => {
-           return column.rows.reduce((sum:number, row:any) => row.id + sum, 0)
+            return <>Total {column.rows.reduce((sum:number, row:any) => parseInt(row.id) + sum, 0)}</>
          },
         Filter: EqualFilter,
         filter: filterGreaterThan, //Can be a function or 'includes'or 'between'or 'equals'
-        disableSortBy: false
+        disableSortBy: true
       },{
         Header: 'Status',
         accessor: 'col4',
         Footer: (column:any) => {
-           return column.rows.reduce((sum:number, row:any) => row.id + sum, 0)
+            return <>Total {column.rows.reduce((sum:number, row:any) => parseInt(row.id) + sum, 0)}</>
          },
         Filter: DropdownFilter,
         filter: 'equals', 
+        disableSortBy: true
+      },{
+        Header: 'Status2',
+        accessor: 'col5',
+        Footer: (column:any) => {
+            return <>Total {column.rows.reduce((sum:number, row:any) => parseInt(row.id) + sum, 0)}</>
+         },
+        Filter: DropdownFilter,
+        filter: 'equals', 
+        disableSortBy: true
+      },{
+        Header: 'Outside',
+        accessor: 'col6',
+        Footer: (column:any) => {
+            return <>Total {column.rows.reduce((sum:number, row:any) => parseInt(row.id) + sum, 0)}</>
+         },
+        Filter: true,
+        filter: customFilterFunction, 
         disableSortBy: true
       },
      ],
@@ -182,14 +225,41 @@ export default function Table() {
      footerGroups,
      state,
      setGlobalFilter,
+     setFilter,
      prepareRow,
    } = useTable({ columns, data }, useFilters, useGlobalFilter, useSortBy)
- 
+
    const { globalFilter } = state
 
    return (
        <>
        <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
+      <Slider
+        style={{width:"200px"}}
+        size="small"
+        aria-label="Small"
+        max={20}
+        onChange={(e:any) => {
+          setFilter("col6", e.target.value);
+        }}
+      />
+      <FormControl>
+      <InputLabel id="demo-simple-select-label">Status</InputLabel>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        label="Status"
+        onChange={e => {
+        }}
+      >
+        <MenuItem value="">All</MenuItem>
+        {options.map((option:any, i) => (
+          <MenuItem key={i} value={option}>
+            {option}
+          </MenuItem>
+        ))}
+      </Select>
+      </FormControl>
      <table {...getTableProps()}>
        <thead>
          {headerGroups.map(headerGroup => (
