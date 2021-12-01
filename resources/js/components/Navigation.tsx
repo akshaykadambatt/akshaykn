@@ -121,7 +121,7 @@ const Navigation:FunctionComponent<AppProps> = ({ theme }) => {
       <nav className={classes.nav}>
         <div className={classes.logoWrapper}>
           <NavLink to="/">
-            AKSHAY
+            ...
           </NavLink>
         </div>
         <div

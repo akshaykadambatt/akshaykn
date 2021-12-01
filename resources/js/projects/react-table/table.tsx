@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from 'react'
+import React, {FunctionComponent, ReactEventHandler, useState} from 'react'
 import 'regenerator-runtime/runtime';
 import { useTable, useSortBy, useFilters, useGlobalFilter, useAsyncDebounce  } from 'react-table'
  
@@ -76,7 +76,7 @@ export default function Table() {
          Header: 'Column A',
          accessor: 'colA', // accessor is the "key" in the data
          Footer: 'Name',
-         Filter: ColumnFilter
+         Filter: false
        },
        {
          Header: 'Column B',
@@ -84,7 +84,8 @@ export default function Table() {
          Footer: (column:any) => {
             return column.rows.reduce((sum:number, row:any) => row.id + sum, 0)
           },
-         Filter: false
+         Filter: ColumnFilter,
+         disableSortBy: true
        },
      ],
      []
@@ -110,13 +111,14 @@ export default function Table() {
          {headerGroups.map(headerGroup => (
            <tr {...headerGroup.getHeaderGroupProps()}>
              {headerGroup.headers.map(column => (
-               <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+               <th {...column.getHeaderProps()}>
                  {column.render('Header')}
-                 {column.isSorted
-                      ? column.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
-                      : ''}
+                 {column.canSort? 
+                    <div {...column.getHeaderProps(column.getSortByToggleProps())} >
+                      {column.isSorted? column.isSortedDesc? '🔽': '🔼': ''}
+                      sort 
+                    </div>
+                 : null}
                  {column.canFilter ? column.render('Filter'):null}
                </th>
              ))}
