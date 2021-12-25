@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NavLink } from "react-router-dom";
 import { Button, Navlink } from "../components/Button";
 import { createUseStyles, ThemeProvider, useTheme } from "react-jss";
+import { RiFacebookLine, RiInstagramLine, RiGithubLine } from "react-icons/ri";
 
 export default function AboutBlock() {
   const theme = {
@@ -35,13 +36,16 @@ export default function AboutBlock() {
       marginBottom: "2px"
     },
     socials: {
+      display: "flex",
       "& a": {
-        display: "inline-block",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         padding: "11px",
         margin: "10px 4vw 20px 0",
         borderRadius: "100%",
-        height: "17px",
-        width: "18px",
+        height: "28px",
+        width: "28px",
         boxSizing: "content-box",
         transition: "all 0.1s",
         backdropFilter: "blur(8px)",
@@ -80,13 +84,13 @@ export default function AboutBlock() {
           </p>
           <div className={classes.socials}>
             <a href="#" className="reveal">
-              f
+              <RiFacebookLine />
             </a>
             <a href="#" className="reveal">
-              t
+              <RiInstagramLine />
             </a>
             <a href="#" className="reveal">
-              i
+              <RiGithubLine />
             </a>
           </div>
           <Navlink to="/about" text="about" />

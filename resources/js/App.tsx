@@ -12,6 +12,7 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import ScrollReveal from "scrollreveal";
 import ScrollToTop from "./components/ScrollToTop";
+import Space from "./projects/space/Space";
 
 export default function App() {
   const navSpacerElem = useRef(null);
@@ -151,6 +152,7 @@ export default function App() {
         <Route path="/blog/*" element={<Blog theme={theme}/>} />
         <Route path="/works/projects/editor" element={<Editor theme={theme}/>} />
         <Route path="/works/projects/react-table" element={<Table/>} />
+        <Route path="/works/projects/space" element={<Space/>} />
       </Routes>
       <Footer />
     </>
