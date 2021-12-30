@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 import ScrollReveal from "scrollreveal";
 import ScrollToTop from "./components/ScrollToTop";
 import Space from "./projects/space/Space";
+import Dashboard from "./projects/space/Dashboard";
+import axios from "axios";
 
 export default function App() {
   const navSpacerElem = useRef(null);
@@ -29,6 +31,9 @@ export default function App() {
     setCount(count + 1);
   }, [location]);
 
+  useEffect(()=>{
+    axios.get('/sanctum/csrf-cookie')
+  },[])
   const [count, setCount] = useState(0);
   useEffect(() => {
     ScrollReveal().watch  = function (target: string | HTMLElement | NodeListOf<Element>, onEnter: any, onExit: () => void) {
@@ -152,7 +157,7 @@ export default function App() {
         <Route path="/blog/*" element={<Blog theme={theme}/>} />
         <Route path="/works/projects/editor" element={<Editor theme={theme}/>} />
         <Route path="/works/projects/react-table" element={<Table/>} />
-        <Route path="/works/projects/space" element={<Space/>} />
+        <Route path="/works/projects/space" element={<Dashboard/>} />
       </Routes>
       <Footer />
     </>

@@ -256,6 +256,14 @@ h2 {
     transform: translatey(0px);
   }
 }
+@keyframes arriveFromLeft {
+  0% {
+    transform: translatex(-60px);
+  }
+  100% {
+    transform: translatex(0px);
+  }
+}
 .keen-slider__slide.currentSlide {
   opacity: 1;
   box-shadow: 4px 27px 50px 5px rgba(0, 0, 0, 0.31);
