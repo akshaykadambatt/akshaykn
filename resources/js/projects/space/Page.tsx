@@ -1,7 +1,9 @@
-import { Skeleton } from '@mui/material';
+import { Box, Modal, Skeleton, Button } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import {AddItem, Blank} from "./Components";
 function Page() {
+    const [addItem, setAddItem] = useState<boolean>(false);
     useEffect(()=>{
         let formData = new FormData();
         formData.append('email', 'username');
@@ -15,11 +17,15 @@ function Page() {
         }
         });
     },[])
-    
+    function handleAddItem() {
+        setAddItem(true);
+    }
     return (
         <>
             <h2>Space</h2>
             <Skeleton animation="wave" variant="rectangular" width={210} height={118} />
+            <Button onClick={handleAddItem}>Open modal</Button>
+            <AddItem open={addItem} setOpen={setAddItem} />
         </>
     );
 }
