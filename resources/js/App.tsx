@@ -1,8 +1,9 @@
 import { BrowserRouter, Link, Route, Routes, useLocation } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import React, { FC, ReactDOM, useRef } from 'react';
+import React, { useRef, Suspense, lazy } from 'react';
 import Home from "./pages/Home";
-import Works from "./pages/Works";
+// import Works from "./pages/Works";
+const Works = lazy(() => import(/* webpackChunkName: "js/chunks/works" */'./pages/Works'));
 import Blog from "./pages/Blog";
 import About from "./pages/About";
 import Footer from "./components/Footer";
@@ -153,7 +154,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home theme={theme}/>} />
         <Route path="/about/*" element={<About theme={theme}/>} />
-        <Route path="/works/*" element={<Works theme={theme}/>} />
+        <Route path="/works/*" element={
+          <Suspense fallback={<>...</>}>
+            <Works theme={theme}/>
+          </Suspense>} />
         <Route path="/blog/*" element={<Blog theme={theme}/>} />
         <Route path="/works/projects/editor" element={<Editor theme={theme}/>} />
         <Route path="/works/projects/react-table" element={<Table/>} />

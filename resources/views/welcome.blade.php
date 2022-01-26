@@ -18,5 +18,7 @@
 <body class="antialiased">
     <div id="app"></div>
 </body>
-<script src="{{ asset('js/index.js') }}"></script>
+<script src="{{ mix('js/manifest.js') }}" defer async></script>
+<script src="{{ mix('js/index.js') }}" defer async></script>
+<script src="{{ mix('js/vendor.js') }}" defer async></script>
 </html>

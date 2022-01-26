@@ -15,3 +15,14 @@ mix.js('resources/js/laravel_app.js', 'public/js')
     .postCss('resources/css/app.css', 'public/css', [
         //
     ]);
+mix.webpackConfig({
+    output: {
+        filename:'[name].js',
+        chunkFilename: 'chunk/[name].js',
+    },
+});
+// mix.options({ runtimeChunkPath: '.' });
+mix.babelConfig({
+    plugins: ['@babel/plugin-syntax-dynamic-import'],
+  });
+ mix.extract();

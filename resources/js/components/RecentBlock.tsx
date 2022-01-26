@@ -1,12 +1,13 @@
 import { createUseStyles } from "react-jss";
 import * as React from 'react';
+import { NavLink } from "react-router-dom";
 
 export default function RecentBlock() {
   const useStyles = createUseStyles({
     wrap: {
       display: "grid",
       gridTemplateColumns: "repeat(3, 1fr)",
-      gridAutoRows: "100px",
+      gridAutoRows: "auto",
       gridColumnGap: "23px",
       gridRowGap: "26px",
       padding: "31px",
@@ -18,6 +19,7 @@ export default function RecentBlock() {
       backdropFilter: "blur(15px)",
       cursor: "pointer",
       transition: "all 0.1s",
+      textDecoration: "none !important",
       boxShadow:
         "rgb(0 0 0 / 10%) 3px 3px 4px 2px,rgb(255 255 255 / 91%) -3px -3px 4px 2px,inset rgb(255 255 255 / 83%) 0 0 0 0, inset rgb(241 237 237 / 91%) 0 0 0 0",
       "&:hover": {
@@ -72,17 +74,25 @@ export default function RecentBlock() {
         padding: "3px 12px",
         border: "1px solid #0000004d"
       }
+    },
+    boxWithTag: {
+      paddingBottom: "70px"
+    },
+    center: {
+      display: "flex",
+      justifyContent: "center"
     }
   });
   const classes = useStyles();
   return (
     <>
+    <div className={classes.center}>
         <div className={`reveal ${classes.wrap}`}>
-          <div
+          <NavLink to="/works"
             data-delay="0"
-            className={`reveal ${classes.box1} ${classes.box}`}
+            className={`reveal ${classes.box1} ${classes.box} ${classes.boxWithTag}`}
           >
-            <div className={classes.tag}>#work</div>
+            <NavLink to="/?tag=work" className={classes.tag}>#work</NavLink>
             <div className={classes.boxInsideWrap}>
               <h2>Works</h2>
               <p>
@@ -90,53 +100,54 @@ export default function RecentBlock() {
                 projects I've created
               </p>
             </div>
-          </div>
-          <div
-            className={`reveal ${classes.box2} ${classes.box}`}
+          </NavLink>
+          <NavLink to="/blog"
+            className={`reveal ${classes.box2} ${classes.box} ${classes.boxWithTag}`}
             data-delay="10"
           >
             <div className={classes.tag}>#blog</div>
             <div className={classes.boxInsideWrap}>
-              <h2>Blog</h2>
-              <p>The blog has a log of all the shit I've posted.</p>
+              <h2>How The Metaverse Could Change The World Forever</h2>
+              <p>How The Metaverse Could Change The World Forever or How It Could Be The Next Technological Flop.</p>
             </div>
-          </div>
-          <div
+          </NavLink>
+          <NavLink to="/about"
             data-delay="10"
             className={`reveal ${classes.box3} ${classes.box}`}
           >
             <div className={classes.boxInsideWrap}>
               <p>Links to the outside</p>
             </div>
-          </div>
-          <div
+          </NavLink>
+          <NavLink to="/about"
             data-delay="10"
             className={`reveal ${classes.box4} ${classes.box}`}
           >
             <div className={classes.boxInsideWrap}>
               <p>About.</p>
             </div>
-          </div>
-          <div
+          </NavLink>
+          <NavLink to="/blog"
             data-delay="20"
-            className={`reveal ${classes.box5} ${classes.box}`}
+            className={`reveal ${classes.box5} ${classes.box} ${classes.boxWithTag}`}
           >
             <div className={classes.tag}>#blog</div>
             <div className={classes.boxInsideWrap}>
-              <p>The blog has a log of all the shit I've posted.</p>
+              <p>The blog has a log of all things I've posted.</p>
             </div>
-          </div>
-          <div
+          </NavLink>
+          <NavLink to="/blog"
             data-delay="20"
-            className={`reveal ${classes.box6} ${classes.box}`}
+            className={`reveal ${classes.box6} ${classes.box} ${classes.boxWithTag}`}
           >
             <div className={classes.tag}>#blog</div>
             <div className={classes.boxInsideWrap}>
               <h2>Blog</h2>
-              <p>The blog has a log of all the shit I've posted.</p>
+              <p>The blog has a log of all things I've posted.</p>
             </div>
-          </div>
+          </NavLink>
         </div>
+    </div>
     </>
   );
 }

@@ -184,8 +184,7 @@ const Navigation:FunctionComponent<AppProps> = ({ theme }) => {
         </div>
         <div className={classes.p}>
           <p>
-            Lorem ipsum, fuck this shit, imma break out of this blurp like a
-            slurpy.
+            Hi there, stranger.
           </p>
         </div>
       </div>
