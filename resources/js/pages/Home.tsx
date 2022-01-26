@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import RecentBlock from "../components/RecentBlock";
 import ItemBlock from "../components/ItemBlock";
 import AboutBlock from "../components/AboutBlock";
+import SkillBlock from "../components/SkillBlock";
 import { AppProps } from "myModule";
 import { Button, Navlink } from "../components/Button";
 
@@ -43,11 +44,13 @@ const Home:FunctionComponent<AppProps> = () => {
             Complexity as Simplicity
           </h1>
           <p data-delay="20" className="reveal">
-            Hello there, its me here. Hello there, its me here. Hello there, its
-            me here. Hello there, its me here. Hello there, its me here.
+            Hello there, I'm Akshay. I focus on making and keeping things simple. As a great man once said, simplicity is the ultimate sophistication.
           </p>
           <Navlink to="/works" text="works" />
         </div>
+      </div>
+      <div className="container">
+        <SkillBlock />
       </div>
       <div className="container">
         <h1 className="reveal">Recents</h1>

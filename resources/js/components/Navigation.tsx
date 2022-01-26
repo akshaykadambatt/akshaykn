@@ -13,7 +13,7 @@ const Navigation:FunctionComponent<AppProps> = ({ theme }) => {
       color: "red",
       background: "rgb(149 149 149 / 8%)",
       width: "100vw",
-      height: "9vh",
+      height: "10vh",
       display: "flex",
       justifyContent: "space-around",
       position: "fixed",
@@ -27,7 +27,7 @@ const Navigation:FunctionComponent<AppProps> = ({ theme }) => {
 
     logoWrapper: {
       fontWeight: "600",
-      width: "20vw"
+      width: "50vw"
     },
     navLink: {
       border: "2px solid rgba(0, 0, 0,0)",
@@ -121,7 +121,7 @@ const Navigation:FunctionComponent<AppProps> = ({ theme }) => {
       <nav className={classes.nav}>
         <div className={classes.logoWrapper}>
           <NavLink to="/">
-            ...
+            Akshay K Nair
           </NavLink>
         </div>
         <div

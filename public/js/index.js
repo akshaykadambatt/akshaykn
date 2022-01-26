@@ -865,7 +865,7 @@ var Navigation = function Navigation(_a) {
       color: "red",
       background: "rgb(149 149 149 / 8%)",
       width: "100vw",
-      height: "9vh",
+      height: "10vh",
       display: "flex",
       justifyContent: "space-around",
       position: "fixed",
@@ -877,7 +877,7 @@ var Navigation = function Navigation(_a) {
     },
     logoWrapper: {
       fontWeight: "600",
-      width: "20vw"
+      width: "50vw"
     },
     navLink: {
       border: "2px solid rgba(0, 0, 0,0)",
@@ -974,7 +974,7 @@ var Navigation = function Navigation(_a) {
     className: classes.logoWrapper
   }, React.createElement(react_router_dom_1.NavLink, {
     to: "/"
-  }, "...")), React.createElement("div", {
+  }, "Akshay K Nair")), React.createElement("div", {
     className: classes.lineWrap + " " + (menu === true ? "" + classes.opened : ""),
     onClick: function onClick() {
       return setMenu(function (prevMenu) {
@@ -1207,19 +1207,34 @@ function RecentBlock() {
       gridRowEnd: 3
     },
     box2: {
-      gridArea: "5/1/3/3"
+      gridArea: "5/1/3/3",
+      '@media (max-width: 600px)': {
+        gridArea: "5/1/3/4"
+      }
     },
     box3: {
-      gridArea: "3/3/4/3"
+      gridArea: "3/3/4/3",
+      '@media (max-width: 600px)': {
+        gridArea: "5/1/5/3"
+      }
     },
     box4: {
-      gridArea: "4/3/4/3"
+      gridArea: "4/3/4/3",
+      '@media (max-width: 600px)': {
+        gridArea: "5/3/5/4"
+      }
     },
     box5: {
-      gridArea: "5 /2 / 7 / 1"
+      gridArea: "5/2/7/1",
+      '@media (max-width: 600px)': {
+        gridArea: "6/4/7/1"
+      }
     },
     box6: {
-      gridArea: "5 / 2 / 7 / 4"
+      gridArea: "5/2/7/4",
+      '@media (max-width: 600px)': {
+        gridArea: "7/1/7/4"
+      }
     },
     boxInsideWrap: {
       display: "-webkit-box",
@@ -1342,6 +1357,158 @@ function ScrollToTop() {
 }
 
 exports["default"] = ScrollToTop;
+
+/***/ }),
+
+/***/ "./resources/js/components/SkillBlock.tsx":
+/*!************************************************!*\
+  !*** ./resources/js/components/SkillBlock.tsx ***!
+  \************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+__webpack_require__(/*! ../style.css */ "./resources/js/style.css");
+
+var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var react_jss_1 = __webpack_require__(/*! react-jss */ "./node_modules/react-jss/dist/react-jss.esm.js");
+
+var ri_1 = __webpack_require__(/*! react-icons/ri */ "./node_modules/react-icons/ri/index.esm.js");
+
+var fa_1 = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+
+var io5_1 = __webpack_require__(/*! react-icons/io5 */ "./node_modules/react-icons/io5/index.esm.js");
+
+var gr_1 = __webpack_require__(/*! react-icons/gr */ "./node_modules/react-icons/gr/index.esm.js");
+
+var ai_1 = __webpack_require__(/*! react-icons/ai */ "./node_modules/react-icons/ai/index.esm.js");
+
+var vsc_1 = __webpack_require__(/*! react-icons/vsc */ "./node_modules/react-icons/vsc/index.esm.js");
+
+var si_1 = __webpack_require__(/*! react-icons/si */ "./node_modules/react-icons/si/index.esm.js");
+
+var SkillBlock = function SkillBlock() {
+  var useStyles = (0, react_jss_1.createUseStyles)({});
+  var classes = useStyles();
+  return React.createElement("div", {
+    className: "bubbles"
+  }, React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle center"
+  }, "Things I do")), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 13
+  }, React.createElement(fa_1.FaLaravel, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 15
+  }, React.createElement(io5_1.IoLogoJavascript, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 17
+  }, React.createElement(ri_1.RiReactjsFill, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 18
+  }, React.createElement(fa_1.FaWordpressSimple, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 110
+  }, React.createElement(fa_1.FaPhp, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 112
+  }, React.createElement(gr_1.GrMysql, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 113
+  }, React.createElement(ai_1.AiOutlineHtml5, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 116
+  }, React.createElement(vsc_1.VscGithubAlt, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 114
+  }, React.createElement(io5_1.IoLogoElectron, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 16
+  }, React.createElement(io5_1.IoLogoPython, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 13
+  }, React.createElement(io5_1.IoLogoFirebase, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 17
+  }, React.createElement(gr_1.GrHeroku, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 19
+  }, React.createElement(si_1.SiWebpack, null))), React.createElement("div", {
+    className: "circle-wrapper"
+  }, React.createElement("div", {
+    className: "reveal circle",
+    "data-delay": 11
+  }, React.createElement(si_1.SiLinux, null))));
+};
+
+exports["default"] = SkillBlock;
 
 /***/ }),
 
@@ -1511,6 +1678,8 @@ var ItemBlock_1 = __importDefault(__webpack_require__(/*! ../components/ItemBloc
 
 var AboutBlock_1 = __importDefault(__webpack_require__(/*! ../components/AboutBlock */ "./resources/js/components/AboutBlock.tsx"));
 
+var SkillBlock_1 = __importDefault(__webpack_require__(/*! ../components/SkillBlock */ "./resources/js/components/SkillBlock.tsx"));
+
 var Button_1 = __webpack_require__(/*! ../components/Button */ "./resources/js/components/Button.tsx");
 
 var Home = function Home() {
@@ -1543,10 +1712,12 @@ var Home = function Home() {
   }, "Complexity as Simplicity"), react_1["default"].createElement("p", {
     "data-delay": "20",
     className: "reveal"
-  }, "Hello there, its me here. Hello there, its me here. Hello there, its me here. Hello there, its me here. Hello there, its me here."), react_1["default"].createElement(Button_1.Navlink, {
+  }, "Hello there, I'm Akshay. I focus on making and keeping things simple. As a great man once said, simplicity is the ultimate sophistication."), react_1["default"].createElement(Button_1.Navlink, {
     to: "/works",
     text: "works"
   }))), react_1["default"].createElement("div", {
+    className: "container"
+  }, react_1["default"].createElement(SkillBlock_1["default"], null)), react_1["default"].createElement("div", {
     className: "container"
   }, react_1["default"].createElement("h1", {
     className: "reveal"
@@ -3777,7 +3948,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --main-color: red;\n  --accent-color: #000;\n  --tertiary-color: #000;\n  --background-color: rgba(235, 235, 235, 0.433);\n  --text-color: #000;\n  --color-one: rgb(255, 0, 0);\n  --color-one-light: rgba(255, 0, 0, 0.205);\n}\n@media (prefers-color-scheme: dark) {\n  \n}\nbody {\n  margin: 0;\n  background-color: var(--background-color);\n  color: var(--text-color);\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n  /* font-size: calc(12px + 1vw); */\n  font-size: 17px;\n  overflow-x: hidden;\n  width: 100vw;\n}\n.reveal {\n  opacity: 0;\n}\na {\n  color: var(--text-color);\n  text-decoration: none;\n}\na:hover {\n  text-decoration: underline;\n}\n\nh1,\nh2 {\n  font-weight: 600;\n  color: var(--main-color);\n}\nh1 {\n  font-size: 50px;\n}\nh2 {\n  font-size: 30px;\n}\n\n.container {\n  padding: 12vh 10vw;\n}\n.backtext {\n  /* right: 10vw; */\n  font-size: 100px;\n  -webkit-text-stroke: 1px var(--main-color);\n  -webkit-text-fill-color: transparent;\n  height: 0;\n  opacity: 0;\n  left: -8vw;\n  transition: opacity 0.3s;\n  width: 100vw;\n  text-align: center;\n}\n.button {\n  transition: all 0.15s;\n  box-shadow: rgb(0 0 0 / 10%) 3px 3px 4px 2px,\n    rgb(255 255 255 / 91%) -3px -3px 4px 2px,\n    inset rgb(255 255 255 / 83%) 0 0 0 0, inset rgb(241 237 237 / 91%) 0 0 0 0;\n  /* font-size: 20px; */\n  padding: 10px 38px 10px 15px;\n  border-radius: 5px;\n  margin: 5px 10px 0 0;\n  -webkit-backdrop-filter: blur(8px);\n          backdrop-filter: blur(8px);\n  display: inline-block;\n}\n.button:hover {\n  box-shadow: rgb(0 0 0 / 10%) 0 0 0 0, rgb(255 255 255 / 91%) 0 0 0 0,\n    inset rgb(255 255 255 / 83%) -3px -3px 4px 2px,\n    inset rgb(241 237 237 / 91%) 3px 4px 4px 2px;\n  padding: 10px 44px 10px 22px;\n  text-decoration: none;\n}\n.button .icon {\n  height: 29px;\n  width: 29px;\n  position: absolute;\n  top: 5px;\n  right: 7px;\n  opacity: 0.55;\n  fill: #ff00007d;\n  transition: all 0.9s;\n}\n.button:hover .icon {\n  top: 5px;\n  right: 5px;\n  fill: #ff0000c5;\n}\n@media screen and (max-width: 600px) {\n  .backtext {\n    /* right: 1vw; */\n    font-size: 61px;\n  }\n  h1 {\n    font-size: 40px;\n  }\n  h2 {\n    font-size: 25px;\n  }\n  .container {\n    padding: 12vh 5vw;\n  }\n}\n.currentSlide {\n  transform: scale(0.7);\n}\n/* Background begin */\n\n#backWrap {\n  position: absolute;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  align-content: center;\n  justify-content: space-around;\n  align-items: center;\n  z-index: -1;\n  transform: scale(1);\n}\n#backWrap div {\n  position: absolute;\n  border: 0px solid var(--color-one);\n  border-radius: 0px 0px;\n  opacity: 0;\n  transform: translate(0px, 0px) scale(3);\n}\n#backWrap div:nth-child(1) {\n  background-color: var(--color-one-light);\n  height: 800px;\n  width: 300px;\n  animation: back 6s cubic-bezier(1, 0, 0.35, 1.08) 0.41s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(2) {\n  background-color: var(--color-one-light);\n  height: 800px;\n  width: 800px;\n  animation: back 4s cubic-bezier(1, 0, 0.35, 1.08) 0.62s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(3) {\n  background-color: var(--color-one-light);\n  height: 150px;\n  width: 350px;\n  animation: back 4s cubic-bezier(1, 0, 0.35, 1.08) 0.83s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(4) {\n  background-color: var(--color-one-light);\n  height: 120px;\n  width: 120px;\n  animation: back 5s cubic-bezier(1, 0, 0.35, 1.08) 1.1s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(5) {\n  background-color: var(--color-one-light);\n  height: 50px;\n  width: 50px;\n  animation: back 1s cubic-bezier(1, 0, 0.35, 1.08) 1.5s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(6) {\n  background-color: var(--color-one-light);\n  height: 50px;\n  width: 140px;\n  animation: back 3s cubic-bezier(1, 0, 0.35, 1.08) 1.6s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(7) {\n  background-color: var(--color-one-light);\n  height: 250px;\n  width: 250px;\n  animation: back 3s cubic-bezier(1, 0, 0.35, 1.08) 1.3s infinite\n    alternate-reverse;\n}\n@-webkit-keyframes back {\n  0% {\n    border-radius: 0px 0px;\n    opacity: 0.21;\n    transform: translate(30vw, -20vh) scale(1);\n  }\n  30% {\n    border-radius: 10px 10px;\n    border: 0px solid var(--color-one);\n    background-color: var(--color-one-light);\n    opacity: 0.21;\n    transform: translate(33vw, -22vh) scale(0.92);\n  }\n  40% {\n    border-radius: 10px 200px;\n    opacity: 0.21;\n    filter: hue-rotate(-68deg);\n    border: 1px solid var(--color-one);\n    background: transparent;\n    transform: translate(30vw, -20vh) scale(1);\n  }\n  60% {\n    border-radius: 10px 10px;\n    transform: translate(29vw, -20vh) scale(1);\n    background-color: var(--color-one-light);\n    border: 0px solid var(--color-one);\n    opacity: 0.61;\n  }\n  70% {\n    border-radius: 10px 10px;\n    opacity: 0.21;\n    transform: translate(30vw, -23vh) scale(0.9);\n    filter: hue-rotate(38deg);\n  }\n  80% {\n    border-radius: 200px 100px;\n    opacity: 0.21;\n    transform: translate(33vw, -20vh) scale(1);\n  }\n  100% {\n    border-radius: 0px 0px;\n    opacity: 0;\n    transform: translate(30vw, -21vh) scale(1);\n  }\n}\n@keyframes back {\n  0% {\n    border-radius: 0px 0px;\n    opacity: 0.21;\n    transform: translate(30vw, -20vh) scale(1);\n  }\n  30% {\n    border-radius: 10px 10px;\n    border: 0px solid var(--color-one);\n    background-color: var(--color-one-light);\n    opacity: 0.21;\n    transform: translate(33vw, -22vh) scale(0.92);\n  }\n  40% {\n    border-radius: 10px 200px;\n    opacity: 0.21;\n    filter: hue-rotate(-68deg);\n    border: 1px solid var(--color-one);\n    background: transparent;\n    transform: translate(30vw, -20vh) scale(1);\n  }\n  60% {\n    border-radius: 10px 10px;\n    transform: translate(29vw, -20vh) scale(1);\n    background-color: var(--color-one-light);\n    border: 0px solid var(--color-one);\n    opacity: 0.61;\n  }\n  70% {\n    border-radius: 10px 10px;\n    opacity: 0.21;\n    transform: translate(30vw, -23vh) scale(0.9);\n    filter: hue-rotate(38deg);\n  }\n  80% {\n    border-radius: 200px 100px;\n    opacity: 0.21;\n    transform: translate(33vw, -20vh) scale(1);\n  }\n  100% {\n    border-radius: 0px 0px;\n    opacity: 0;\n    transform: translate(30vw, -21vh) scale(1);\n  }\n}\n\n/* Background end */\n@-webkit-keyframes slider {\n  0% {\n    width: 0;\n  }\n  50% {\n    width: 70vw;\n  }\n  70% {\n    width: 80vw;\n  }\n  100% {\n    width: 100vw;\n  }\n}\n@keyframes slider {\n  0% {\n    width: 0;\n  }\n  50% {\n    width: 70vw;\n  }\n  70% {\n    width: 80vw;\n  }\n  100% {\n    width: 100vw;\n  }\n}\n\n@-webkit-keyframes navArrive {\n  0% {\n    transform: translatey(-60px);\n    -webkit-backdrop-filter: blur(0px);\n            backdrop-filter: blur(0px);\n  }\n  100% {\n    transform: translatey(0px);\n  }\n}\n\n@keyframes navArrive {\n  0% {\n    transform: translatey(-60px);\n    -webkit-backdrop-filter: blur(0px);\n            backdrop-filter: blur(0px);\n  }\n  100% {\n    transform: translatey(0px);\n  }\n}\n@-webkit-keyframes arriveFromLeft {\n  0% {\n    transform: translatex(-60px);\n  }\n  100% {\n    transform: translatex(0px);\n  }\n}\n@keyframes arriveFromLeft {\n  0% {\n    transform: translatex(-60px);\n  }\n  100% {\n    transform: translatex(0px);\n  }\n}\n.keen-slider__slide.currentSlide {\n  opacity: 1;\n  box-shadow: 4px 27px 50px 5px rgba(0, 0, 0, 0.31);\n  top: -13px;\n}\n.keen-slider__slide {\n  opacity: 0.61;\n  top: 0;\n  transition: opacity 0.14s, box-shadow 2s, top 1s;\n}\n\n@-webkit-keyframes disappear {\n  0% {transform: translateY(4px);opacity: 0;z-index:4;}\n  10% {transform: translateY(-4px);opacity: 1;z-index:4;}\n  90% {transform: translateY(-4px);opacity: 1;z-index:4;}\n  100% {transform: translateY(4px);opacity: 0;z-index:4;}\n}\n\n@keyframes disappear {\n  0% {transform: translateY(4px);opacity: 0;z-index:4;}\n  10% {transform: translateY(-4px);opacity: 1;z-index:4;}\n  90% {transform: translateY(-4px);opacity: 1;z-index:4;}\n  100% {transform: translateY(4px);opacity: 0;z-index:4;}\n}\ndiv:hover > .controls{\n  opacity: 0;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\n  --main-color: red;\n  --accent-color: #000;\n  --tertiary-color: #000;\n  --background-color: rgba(235, 235, 235, 0.433);\n  --text-color: #000;\n  --color-one: rgb(255, 0, 0);\n  --color-one-light: rgba(255, 0, 0, 0.205);\n}\n@media (prefers-color-scheme: dark) {\n  \n}\nbody {\n  margin: 0;\n  background-color: var(--background-color);\n  color: var(--text-color);\n  font-family: \"Montserrat\", sans-serif;\n  font-weight: 300;\n  /* font-size: calc(12px + 1vw); */\n  font-size: 17px;\n  overflow-x: hidden;\n  width: 100vw;\n}\n.reveal {\n  opacity: 0;\n}\na {\n  color: var(--text-color);\n  text-decoration: none;\n}\na:hover {\n  text-decoration: underline;\n}\n\nh1,\nh2 {\n  font-weight: 600;\n  color: var(--main-color);\n}\nh1 {\n  font-size: 50px;\n}\nh2 {\n  font-size: 30px;\n}\n\n.container {\n  padding: 12vh 10vw;\n}\n.backtext {\n  /* right: 10vw; */\n  font-size: 100px;\n  -webkit-text-stroke: 1px var(--main-color);\n  -webkit-text-fill-color: transparent;\n  height: 0;\n  opacity: 0;\n  left: -8vw;\n  transition: opacity 0.3s;\n  width: 100vw;\n  text-align: center;\n}\n.button {\n  transition: all 0.15s;\n  box-shadow: rgb(0 0 0 / 10%) 3px 3px 4px 2px,\n    rgb(255 255 255 / 91%) -3px -3px 4px 2px,\n    inset rgb(255 255 255 / 83%) 0 0 0 0, inset rgb(241 237 237 / 91%) 0 0 0 0;\n  /* font-size: 20px; */\n  padding: 10px 38px 10px 15px;\n  border-radius: 5px;\n  margin: 5px 10px 0 0;\n  -webkit-backdrop-filter: blur(8px);\n          backdrop-filter: blur(8px);\n  display: inline-block;\n}\n.button:hover {\n  box-shadow: rgb(0 0 0 / 10%) 0 0 0 0, rgb(255 255 255 / 91%) 0 0 0 0,\n    inset rgb(255 255 255 / 83%) -3px -3px 4px 2px,\n    inset rgb(241 237 237 / 91%) 3px 4px 4px 2px;\n  padding: 10px 44px 10px 22px;\n  text-decoration: none;\n}\n.button .icon {\n  height: 29px;\n  width: 29px;\n  position: absolute;\n  top: 5px;\n  right: 7px;\n  opacity: 0.55;\n  fill: #ff00007d;\n  transition: all 0.9s;\n}\n.button:hover .icon {\n  top: 5px;\n  right: 5px;\n  fill: #ff0000c5;\n}\n@media screen and (max-width: 600px) {\n  .backtext {\n    /* right: 1vw; */\n    font-size: 61px;\n  }\n  h1 {\n    font-size: 40px;\n  }\n  h2 {\n    font-size: 25px;\n  }\n  .container {\n    padding: 12vh 5vw;\n  }\n}\n.currentSlide {\n  transform: scale(0.7);\n}\n/* Background begin */\n\n#backWrap {\n  position: absolute;\n  height: 100vh;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  align-content: center;\n  justify-content: space-around;\n  align-items: center;\n  z-index: -1;\n  transform: scale(1);\n}\n#backWrap div {\n  position: absolute;\n  border: 0px solid var(--color-one);\n  border-radius: 0px 0px;\n  opacity: 0;\n  transform: translate(0px, 0px) scale(3);\n}\n#backWrap div:nth-child(1) {\n  background-color: var(--color-one-light);\n  height: 800px;\n  width: 300px;\n  animation: back 6s cubic-bezier(1, 0, 0.35, 1.08) 0.41s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(2) {\n  background-color: var(--color-one-light);\n  height: 800px;\n  width: 800px;\n  animation: back 4s cubic-bezier(1, 0, 0.35, 1.08) 0.62s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(3) {\n  background-color: var(--color-one-light);\n  height: 150px;\n  width: 350px;\n  animation: back 4s cubic-bezier(1, 0, 0.35, 1.08) 0.83s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(4) {\n  background-color: var(--color-one-light);\n  height: 120px;\n  width: 120px;\n  animation: back 5s cubic-bezier(1, 0, 0.35, 1.08) 1.1s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(5) {\n  background-color: var(--color-one-light);\n  height: 50px;\n  width: 50px;\n  animation: back 1s cubic-bezier(1, 0, 0.35, 1.08) 1.5s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(6) {\n  background-color: var(--color-one-light);\n  height: 50px;\n  width: 140px;\n  animation: back 3s cubic-bezier(1, 0, 0.35, 1.08) 1.6s infinite\n    alternate-reverse;\n}\n#backWrap div:nth-child(7) {\n  background-color: var(--color-one-light);\n  height: 250px;\n  width: 250px;\n  animation: back 3s cubic-bezier(1, 0, 0.35, 1.08) 1.3s infinite\n    alternate-reverse;\n}\n@-webkit-keyframes back {\n  0% {\n    border-radius: 0px 0px;\n    opacity: 0.21;\n    transform: translate(30vw, -20vh) scale(1);\n  }\n  30% {\n    border-radius: 10px 10px;\n    border: 0px solid var(--color-one);\n    background-color: var(--color-one-light);\n    opacity: 0.21;\n    transform: translate(33vw, -22vh) scale(0.92);\n  }\n  40% {\n    border-radius: 10px 200px;\n    opacity: 0.21;\n    filter: hue-rotate(-68deg);\n    border: 1px solid var(--color-one);\n    background: transparent;\n    transform: translate(30vw, -20vh) scale(1);\n  }\n  60% {\n    border-radius: 10px 10px;\n    transform: translate(29vw, -20vh) scale(1);\n    background-color: var(--color-one-light);\n    border: 0px solid var(--color-one);\n    opacity: 0.61;\n  }\n  70% {\n    border-radius: 10px 10px;\n    opacity: 0.21;\n    transform: translate(30vw, -23vh) scale(0.9);\n    filter: hue-rotate(38deg);\n  }\n  80% {\n    border-radius: 200px 100px;\n    opacity: 0.21;\n    transform: translate(33vw, -20vh) scale(1);\n  }\n  100% {\n    border-radius: 0px 0px;\n    opacity: 0;\n    transform: translate(30vw, -21vh) scale(1);\n  }\n}\n@keyframes back {\n  0% {\n    border-radius: 0px 0px;\n    opacity: 0.21;\n    transform: translate(30vw, -20vh) scale(1);\n  }\n  30% {\n    border-radius: 10px 10px;\n    border: 0px solid var(--color-one);\n    background-color: var(--color-one-light);\n    opacity: 0.21;\n    transform: translate(33vw, -22vh) scale(0.92);\n  }\n  40% {\n    border-radius: 10px 200px;\n    opacity: 0.21;\n    filter: hue-rotate(-68deg);\n    border: 1px solid var(--color-one);\n    background: transparent;\n    transform: translate(30vw, -20vh) scale(1);\n  }\n  60% {\n    border-radius: 10px 10px;\n    transform: translate(29vw, -20vh) scale(1);\n    background-color: var(--color-one-light);\n    border: 0px solid var(--color-one);\n    opacity: 0.61;\n  }\n  70% {\n    border-radius: 10px 10px;\n    opacity: 0.21;\n    transform: translate(30vw, -23vh) scale(0.9);\n    filter: hue-rotate(38deg);\n  }\n  80% {\n    border-radius: 200px 100px;\n    opacity: 0.21;\n    transform: translate(33vw, -20vh) scale(1);\n  }\n  100% {\n    border-radius: 0px 0px;\n    opacity: 0;\n    transform: translate(30vw, -21vh) scale(1);\n  }\n}\n\n/* Background end */\n@-webkit-keyframes slider {\n  0% {\n    width: 0;\n  }\n  50% {\n    width: 70vw;\n  }\n  70% {\n    width: 80vw;\n  }\n  100% {\n    width: 100vw;\n  }\n}\n@keyframes slider {\n  0% {\n    width: 0;\n  }\n  50% {\n    width: 70vw;\n  }\n  70% {\n    width: 80vw;\n  }\n  100% {\n    width: 100vw;\n  }\n}\n\n@-webkit-keyframes navArrive {\n  0% {\n    transform: translatey(-60px);\n    -webkit-backdrop-filter: blur(0px);\n            backdrop-filter: blur(0px);\n  }\n  100% {\n    transform: translatey(0px);\n  }\n}\n\n@keyframes navArrive {\n  0% {\n    transform: translatey(-60px);\n    -webkit-backdrop-filter: blur(0px);\n            backdrop-filter: blur(0px);\n  }\n  100% {\n    transform: translatey(0px);\n  }\n}\n@-webkit-keyframes arriveFromLeft {\n  0% {\n    transform: translatex(-60px);\n  }\n  100% {\n    transform: translatex(0px);\n  }\n}\n@keyframes arriveFromLeft {\n  0% {\n    transform: translatex(-60px);\n  }\n  100% {\n    transform: translatex(0px);\n  }\n}\n.keen-slider__slide.currentSlide {\n  opacity: 1;\n  box-shadow: 4px 27px 50px 5px rgba(0, 0, 0, 0.31);\n  top: -13px;\n}\n.keen-slider__slide {\n  opacity: 0.61;\n  top: 0;\n  transition: opacity 0.14s, box-shadow 2s, top 1s;\n}\n\n@-webkit-keyframes disappear {\n  0% {transform: translateY(4px);opacity: 0;z-index:4;}\n  10% {transform: translateY(-4px);opacity: 1;z-index:4;}\n  90% {transform: translateY(-4px);opacity: 1;z-index:4;}\n  100% {transform: translateY(4px);opacity: 0;z-index:4;}\n}\n\n@keyframes disappear {\n  0% {transform: translateY(4px);opacity: 0;z-index:4;}\n  10% {transform: translateY(-4px);opacity: 1;z-index:4;}\n  90% {transform: translateY(-4px);opacity: 1;z-index:4;}\n  100% {transform: translateY(4px);opacity: 0;z-index:4;}\n}\ndiv:hover > .controls{\n  opacity: 0;\n}\n/*BUBBLES START*/\n.bubbles {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 100vh;\n}\n.bubbles .circle {\n  border-radius: 100%;\n  display: flex;\n  justify-content: center;\n  position: relative;\n  align-items: center;\n  transition: all .2s, border .5s .61s;\n}\n.bubbles .circle-wrapper{\n  position: absolute;\n  height: 0;\n  width: 0;\n}\n.bubbles .circle-wrapper .circle{\n  border: 1px solid transparent;\n  padding:10px;\n}\n.bubbles .circle-wrapper .circle.active{\n  border: 1px solid var(--main-color);\n  padding:0px;\n}\n.bubbles .circle-wrapper .circle.active:hover{\n  transform:scale(1.1);\n}\n.bubbles .circle-wrapper:nth-child(1) .center.active{\n  height: 230px;\n  width: 230px;\n  border: 1px solid var(--main-color);\n  top: -115px;\n  left: -115px;\n  font-weight: 700;\n    -webkit-text-stroke: 1px var(--main-color);\n    -webkit-text-fill-color: transparent;\n    visibility: visible;\n    opacity: 1;\n}\n.bubbles .circle-wrapper:nth-child(2) .circle{\n  height: 200px;\n  width: 200px;\n  inset: -30px 122px;\n  font-size: 50px;\n}\n.bubbles .circle-wrapper:nth-child(3) .circle{\n  height: 200px;\n  width: 200px;\n  inset: -218px -305px;\n  font-size: 50px;\n}\n.bubbles .circle-wrapper:nth-child(4) .circle{\n  height: 180px;\n  width: 180px;\n  inset: 132px -106px;\n  font-size: 48px;\n}\n.bubbles .circle-wrapper:nth-child(5) .circle{\n  height: 200px;\n  width: 200px;\n  inset: 4px -308px;\n  font-size: 50px;\n}\n.bubbles .circle-wrapper:nth-child(6) .circle{\n  height: 170px;\n  width: 170px;\n  inset: -304px -110px;\n  font-size: 45px;\n}\n.bubbles .circle-wrapper:nth-child(7) .circle{\n  height: 150px;\n  width: 150px;\n  inset: -227px 70px;\n  font-size: 44px;\n}\n.bubbles .circle-wrapper:nth-child(8) .circle{\n  height: 140px;\n  width: 140px;\n  inset: -169px 231px;\n  font-size: 42px;\n}\n.bubbles .circle-wrapper:nth-child(9) .circle{\n  height: 150px;\n  width: 150px;\n  inset: -74px -445px;\n  font-size: 44px;\n}\n.bubbles .circle-wrapper:nth-child(10) .circle{\n  height: 140px;\n  width: 140px;\n  inset: 180px 95px;\n  font-size: 42px;\n}\n.bubbles .circle-wrapper:nth-child(11) .circle{\n  height: 130px;\n  width: 130px;\n  inset: 166px 253px;\n  font-size: 39px;\n}\n.bubbles .circle-wrapper:nth-child(12) .circle{\n  height: 100px;\n  width: 100px;\n  inset: -33px 336px;\n  font-size: 35px;\n}\n.bubbles .circle-wrapper:nth-child(13) .circle{\n  height: 100px;\n  width: 100px;\n  inset: 218px -227px;\n  font-size: 35px;\n}\n.bubbles .circle-wrapper:nth-child(14) .circle{\n  height: 100px;\n  width: 100px;\n  inset: 94px -424px;\n  font-size: 35px;\n}\n.bubbles .circle-wrapper:nth-child(15) .circle{\n  height: 100px;\n  width: 100px;\n  inset: -290px 220px;\n  font-size: 35px;\n}\n\n@media (max-width:900px) {\n  .bubbles .circle-wrapper:nth-child(1) .center.active{\n    height: 180px;\n    width: 180px;\n    border: 1px solid var(--main-color);\n    top: -90px;\n    left: -90px;\n  }\n  .bubbles .circle-wrapper:nth-child(2) .circle{\n    height: 140px;\n    width: 140px;\n    inset: -23px 99px;\n    font-size: 50px;\n  }\n  .bubbles .circle-wrapper:nth-child(3) .circle{\n    height: 140px;\n    width: 140px;\n    inset: -168px -215px;\n    font-size: 50px;\n  }\n  .bubbles .circle-wrapper:nth-child(4) .circle{\n    height: 120px;\n    width: 120px;\n    inset: 101px -106px;\n    font-size: 48px;\n  }\n  .bubbles .circle-wrapper:nth-child(5) .circle{\n    height: 140px;\n    width: 140px;\n    inset: -1px -228px;\n    font-size: 50px;\n  }\n  .bubbles .circle-wrapper:nth-child(6) .circle{\n    height: 140px;\n    width: 140px;\n    inset: -244px -82px;\n    font-size: 45px;\n  }\n  .bubbles .circle-wrapper:nth-child(7) .circle{\n    height: 100px;\n    width: 100px;\n    inset: -165px 63px;\n    font-size: 44px;\n  }\n  .bubbles .circle-wrapper:nth-child(8) .circle{\n    height: 80px;\n    width: 80px;\n    inset: -113px 171px;\n    font-size: 42px;\n  }\n  .bubbles .circle-wrapper:nth-child(9) .circle{\n    height: 100px;\n    width: 100px;\n    inset: -74px -309px;\n    font-size: 44px;\n  }\n  .bubbles .circle-wrapper:nth-child(10) .circle{\n    height: 80px;\n    width: 80px;\n    inset: 88px 25px;\n    font-size: 42px;\n  }\n  .bubbles .circle-wrapper:nth-child(11) .circle{\n    height: 80px;\n    width: 80px;\n    inset: 129px 111px;\n    font-size: 39px;\n  }\n  .bubbles .circle-wrapper:nth-child(12) .circle{\n    height: 60px;\n    width: 60px;\n    inset: -40px 237px;\n    font-size: 35px;\n  }\n  .bubbles .circle-wrapper:nth-child(13) .circle{\n    height: 60px;\n    width: 60px;\n    inset: 148px -176px;\n    font-size: 35px;\n  }\n  .bubbles .circle-wrapper:nth-child(14) .circle{\n    height: 60px;\n    width: 60px;\n    inset: 34px -296px;\n    font-size: 35px;\n  }\n  .bubbles .circle-wrapper:nth-child(15) .circle{\n    height: 60px;\n    width: 60px;\n    inset: -190px 171px;\n    font-size: 35px;\n  }\n}\n\n@media (max-width:600px) {\n  .bubbles .circle-wrapper:nth-child(1) .center.active{\n    height: 120px;\n    width: 120px;\n    border: 1px solid var(--main-color);\n    top: -60px;\n    left: -60px;\n  }\n  .bubbles .circle-wrapper:nth-child(2) .circle{\n    height: 90px;\n    width: 90px;\n    inset: -23px 68px;\n    font-size: 21px;\n  }\n  .bubbles .circle-wrapper:nth-child(3) .circle{\n    height: 90px;\n    width: 90px;\n    inset: -116px -135px;\n    font-size: 21px;\n  }\n  .bubbles .circle-wrapper:nth-child(4) .circle{\n    height: 80px;\n    width: 80px;\n    inset: 77px -66px;\n    font-size: 19px;\n  }\n  .bubbles .circle-wrapper:nth-child(5) .circle{\n    height: 90px;\n    width: 90px;\n    inset: -9px -158px;\n    font-size: 21px;\n  }\n  .bubbles .circle-wrapper:nth-child(6) .circle{\n    height: 90px;\n    width: 90px;\n    inset: -169px -46px;\n    font-size: 19px;\n  }\n  .bubbles .circle-wrapper:nth-child(7) .circle{\n    height: 70px;\n    width: 70px;\n    inset: -117px 44px;\n    font-size: 19px;\n  }\n  .bubbles .circle-wrapper:nth-child(8) .circle{\n    height: 60px;\n    width: 60px;\n    inset: -233px 1px;\n    font-size: 19px;\n  }\n  .bubbles .circle-wrapper:nth-child(9) .circle{\n    height: 70px;\n    width: 70px;\n    inset: -213px -116px;\n    font-size: 19px;\n  }\n  .bubbles .circle-wrapper:nth-child(10) .circle{\n    height: 60px;\n    width: 60px;\n    inset: 63px 27px;\n    font-size: 19px;\n  }\n  .bubbles .circle-wrapper:nth-child(11) .circle{\n    height: 60px;\n    width: 60px;\n    inset: 141px 11px;\n    font-size: 19px;\n  }\n  .bubbles .circle-wrapper:nth-child(12) .circle{\n    height: 40px;\n    width: 40px;\n    inset: -71px 122px;\n    font-size: 17px;\n  }\n  .bubbles .circle-wrapper:nth-child(13) .circle{\n    height: 40px;\n    width: 40px;\n    inset: 175px -46px;\n    font-size: 17px;\n  }\n  .bubbles .circle-wrapper:nth-child(14) .circle{\n    height: 40px;\n    width: 40px;\n    inset: 104px -121px;\n    font-size: 17px;\n  }\n  .bubbles .circle-wrapper:nth-child(15) .circle{\n    height: 40px;\n    width: 40px;\n    inset: -176px 53px;\n    font-size: 17px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

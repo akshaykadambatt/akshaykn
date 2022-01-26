@@ -284,3 +284,318 @@ h2 {
 div:hover > .controls{
   opacity: 0;
 }
+/*BUBBLES START*/
+.bubbles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.bubbles .circle {
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  transition: all .2s, border .5s .61s;
+}
+.bubbles .circle-wrapper{
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+.bubbles .circle-wrapper .circle{
+  border: 1px solid transparent;
+  padding:10px;
+}
+.bubbles .circle-wrapper .circle.active{
+  border: 1px solid var(--main-color);
+  padding:0px;
+}
+.bubbles .circle-wrapper .circle.active:hover{
+  transform:scale(1.1);
+}
+.bubbles .circle-wrapper:nth-child(1) .center.active{
+  height: 230px;
+  width: 230px;
+  border: 1px solid var(--main-color);
+  top: -115px;
+  left: -115px;
+  font-weight: 700;
+    -webkit-text-stroke: 1px var(--main-color);
+    -webkit-text-fill-color: transparent;
+    visibility: visible;
+    opacity: 1;
+}
+.bubbles .circle-wrapper:nth-child(2) .circle{
+  height: 200px;
+  width: 200px;
+  inset: -30px 122px;
+  font-size: 50px;
+}
+.bubbles .circle-wrapper:nth-child(3) .circle{
+  height: 200px;
+  width: 200px;
+  inset: -218px -305px;
+  font-size: 50px;
+}
+.bubbles .circle-wrapper:nth-child(4) .circle{
+  height: 180px;
+  width: 180px;
+  inset: 132px -106px;
+  font-size: 48px;
+}
+.bubbles .circle-wrapper:nth-child(5) .circle{
+  height: 200px;
+  width: 200px;
+  inset: 4px -308px;
+  font-size: 50px;
+}
+.bubbles .circle-wrapper:nth-child(6) .circle{
+  height: 170px;
+  width: 170px;
+  inset: -304px -110px;
+  font-size: 45px;
+}
+.bubbles .circle-wrapper:nth-child(7) .circle{
+  height: 150px;
+  width: 150px;
+  inset: -227px 70px;
+  font-size: 44px;
+}
+.bubbles .circle-wrapper:nth-child(8) .circle{
+  height: 140px;
+  width: 140px;
+  inset: -169px 231px;
+  font-size: 42px;
+}
+.bubbles .circle-wrapper:nth-child(9) .circle{
+  height: 150px;
+  width: 150px;
+  inset: -74px -445px;
+  font-size: 44px;
+}
+.bubbles .circle-wrapper:nth-child(10) .circle{
+  height: 140px;
+  width: 140px;
+  inset: 180px 95px;
+  font-size: 42px;
+}
+.bubbles .circle-wrapper:nth-child(11) .circle{
+  height: 130px;
+  width: 130px;
+  inset: 166px 253px;
+  font-size: 39px;
+}
+.bubbles .circle-wrapper:nth-child(12) .circle{
+  height: 100px;
+  width: 100px;
+  inset: -33px 336px;
+  font-size: 35px;
+}
+.bubbles .circle-wrapper:nth-child(13) .circle{
+  height: 100px;
+  width: 100px;
+  inset: 218px -227px;
+  font-size: 35px;
+}
+.bubbles .circle-wrapper:nth-child(14) .circle{
+  height: 100px;
+  width: 100px;
+  inset: 94px -424px;
+  font-size: 35px;
+}
+.bubbles .circle-wrapper:nth-child(15) .circle{
+  height: 100px;
+  width: 100px;
+  inset: -290px 220px;
+  font-size: 35px;
+}
+
+@media (max-width:900px) {
+  .bubbles .circle-wrapper:nth-child(1) .center.active{
+    height: 180px;
+    width: 180px;
+    border: 1px solid var(--main-color);
+    top: -90px;
+    left: -90px;
+  }
+  .bubbles .circle-wrapper:nth-child(2) .circle{
+    height: 140px;
+    width: 140px;
+    inset: -23px 99px;
+    font-size: 50px;
+  }
+  .bubbles .circle-wrapper:nth-child(3) .circle{
+    height: 140px;
+    width: 140px;
+    inset: -168px -215px;
+    font-size: 50px;
+  }
+  .bubbles .circle-wrapper:nth-child(4) .circle{
+    height: 120px;
+    width: 120px;
+    inset: 101px -106px;
+    font-size: 48px;
+  }
+  .bubbles .circle-wrapper:nth-child(5) .circle{
+    height: 140px;
+    width: 140px;
+    inset: -1px -228px;
+    font-size: 50px;
+  }
+  .bubbles .circle-wrapper:nth-child(6) .circle{
+    height: 140px;
+    width: 140px;
+    inset: -244px -82px;
+    font-size: 45px;
+  }
+  .bubbles .circle-wrapper:nth-child(7) .circle{
+    height: 100px;
+    width: 100px;
+    inset: -165px 63px;
+    font-size: 44px;
+  }
+  .bubbles .circle-wrapper:nth-child(8) .circle{
+    height: 80px;
+    width: 80px;
+    inset: -113px 171px;
+    font-size: 42px;
+  }
+  .bubbles .circle-wrapper:nth-child(9) .circle{
+    height: 100px;
+    width: 100px;
+    inset: -74px -309px;
+    font-size: 44px;
+  }
+  .bubbles .circle-wrapper:nth-child(10) .circle{
+    height: 80px;
+    width: 80px;
+    inset: 88px 25px;
+    font-size: 42px;
+  }
+  .bubbles .circle-wrapper:nth-child(11) .circle{
+    height: 80px;
+    width: 80px;
+    inset: 129px 111px;
+    font-size: 39px;
+  }
+  .bubbles .circle-wrapper:nth-child(12) .circle{
+    height: 60px;
+    width: 60px;
+    inset: -40px 237px;
+    font-size: 35px;
+  }
+  .bubbles .circle-wrapper:nth-child(13) .circle{
+    height: 60px;
+    width: 60px;
+    inset: 148px -176px;
+    font-size: 35px;
+  }
+  .bubbles .circle-wrapper:nth-child(14) .circle{
+    height: 60px;
+    width: 60px;
+    inset: 34px -296px;
+    font-size: 35px;
+  }
+  .bubbles .circle-wrapper:nth-child(15) .circle{
+    height: 60px;
+    width: 60px;
+    inset: -190px 171px;
+    font-size: 35px;
+  }
+}
+
+@media (max-width:600px) {
+  .bubbles .circle-wrapper:nth-child(1) .center.active{
+    height: 120px;
+    width: 120px;
+    border: 1px solid var(--main-color);
+    top: -60px;
+    left: -60px;
+  }
+  .bubbles .circle-wrapper:nth-child(2) .circle{
+    height: 90px;
+    width: 90px;
+    inset: -23px 68px;
+    font-size: 21px;
+  }
+  .bubbles .circle-wrapper:nth-child(3) .circle{
+    height: 90px;
+    width: 90px;
+    inset: -116px -135px;
+    font-size: 21px;
+  }
+  .bubbles .circle-wrapper:nth-child(4) .circle{
+    height: 80px;
+    width: 80px;
+    inset: 77px -66px;
+    font-size: 19px;
+  }
+  .bubbles .circle-wrapper:nth-child(5) .circle{
+    height: 90px;
+    width: 90px;
+    inset: -9px -158px;
+    font-size: 21px;
+  }
+  .bubbles .circle-wrapper:nth-child(6) .circle{
+    height: 90px;
+    width: 90px;
+    inset: -169px -46px;
+    font-size: 19px;
+  }
+  .bubbles .circle-wrapper:nth-child(7) .circle{
+    height: 70px;
+    width: 70px;
+    inset: -117px 44px;
+    font-size: 19px;
+  }
+  .bubbles .circle-wrapper:nth-child(8) .circle{
+    height: 60px;
+    width: 60px;
+    inset: -233px 1px;
+    font-size: 19px;
+  }
+  .bubbles .circle-wrapper:nth-child(9) .circle{
+    height: 70px;
+    width: 70px;
+    inset: -213px -116px;
+    font-size: 19px;
+  }
+  .bubbles .circle-wrapper:nth-child(10) .circle{
+    height: 60px;
+    width: 60px;
+    inset: 63px 27px;
+    font-size: 19px;
+  }
+  .bubbles .circle-wrapper:nth-child(11) .circle{
+    height: 60px;
+    width: 60px;
+    inset: 141px 11px;
+    font-size: 19px;
+  }
+  .bubbles .circle-wrapper:nth-child(12) .circle{
+    height: 40px;
+    width: 40px;
+    inset: -71px 122px;
+    font-size: 17px;
+  }
+  .bubbles .circle-wrapper:nth-child(13) .circle{
+    height: 40px;
+    width: 40px;
+    inset: 175px -46px;
+    font-size: 17px;
+  }
+  .bubbles .circle-wrapper:nth-child(14) .circle{
+    height: 40px;
+    width: 40px;
+    inset: 104px -121px;
+    font-size: 17px;
+  }
+  .bubbles .circle-wrapper:nth-child(15) .circle{
+    height: 40px;
+    width: 40px;
+    inset: -176px 53px;
+    font-size: 17px;
+  }
+}

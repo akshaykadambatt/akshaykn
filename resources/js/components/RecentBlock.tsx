@@ -34,19 +34,34 @@ export default function RecentBlock() {
       gridRowEnd: 3
     },
     box2: {
-      gridArea: "5/1/3/3"
+      gridArea: "5/1/3/3",
+      '@media (max-width: 600px)': {
+        gridArea: "5/1/3/4",
+      }
     },
     box3: {
-      gridArea: "3/3/4/3"
+      gridArea: "3/3/4/3",
+      '@media (max-width: 600px)': {
+        gridArea: "5/1/5/3",
+      }
     },
     box4: {
-      gridArea: "4/3/4/3"
+      gridArea: "4/3/4/3",
+      '@media (max-width: 600px)': {
+        gridArea: "5/3/5/4",
+      }
     },
     box5: {
-      gridArea: "5 /2 / 7 / 1"
+      gridArea: "5/2/7/1",
+      '@media (max-width: 600px)': {
+        gridArea: "6/4/7/1",
+      }
     },
     box6: {
-      gridArea: "5 / 2 / 7 / 4"
+      gridArea: "5/2/7/4",
+      '@media (max-width: 600px)': {
+        gridArea: "7/1/7/4",
+      }
     },
     boxInsideWrap: {
       display: "-webkit-box",
