@@ -49,7 +49,7 @@ const Home:FunctionComponent<AppProps> = () => {
           <Navlink to="/works" text="works" />
         </div>
       </div>
-      <div className="container">
+      <div className="container-no-margin">
         <SkillBlock />
       </div>
       <div className="container">

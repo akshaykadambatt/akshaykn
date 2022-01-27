@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap");
 :root {
   --main-color: red;
+  --main-color-hex: 255,0,0;
   --accent-color: #000;
   --tertiary-color: #000;
   --background-color: rgba(235, 235, 235, 0.433);
@@ -47,6 +48,9 @@ h2 {
 
 .container {
   padding: 12vh 10vw;
+}
+.container-no-margin{
+  padding: 2vh 10vw;
 }
 .backtext {
   /* right: 10vw; */
@@ -309,8 +313,9 @@ div:hover > .controls{
   padding:10px;
 }
 .bubbles .circle-wrapper .circle.active{
-  border: 1px solid var(--main-color);
+  border: 0px solid var(--main-color);
   padding:0px;
+  color:#fff;
 }
 .bubbles .circle-wrapper .circle.active:hover{
   transform:scale(1.1);
@@ -322,94 +327,109 @@ div:hover > .controls{
   top: -115px;
   left: -115px;
   font-weight: 700;
-    -webkit-text-stroke: 1px var(--main-color);
-    -webkit-text-fill-color: transparent;
-    visibility: visible;
-    opacity: 1;
+  -webkit-text-stroke: 1px var(--main-color);
+  -webkit-text-fill-color: transparent;
+  visibility: visible;
+  opacity: 1;
 }
 .bubbles .circle-wrapper:nth-child(2) .circle{
   height: 200px;
   width: 200px;
   inset: -30px 122px;
   font-size: 50px;
+  background: linear-gradient(45deg, #eb4b4b -20%, #ff2424 120%);
 }
 .bubbles .circle-wrapper:nth-child(3) .circle{
   height: 200px;
   width: 200px;
   inset: -218px -305px;
   font-size: 50px;
+  background: linear-gradient(45deg, #c0ff23, #ead42d);
 }
 .bubbles .circle-wrapper:nth-child(4) .circle{
   height: 180px;
   width: 180px;
   inset: 132px -106px;
   font-size: 48px;
+  background: linear-gradient(45deg, #6aeeaa,#6ad0ee);
 }
 .bubbles .circle-wrapper:nth-child(5) .circle{
   height: 200px;
   width: 200px;
   inset: 4px -308px;
   font-size: 50px;
+  background: linear-gradient(45deg, #5ba5e3, #5ed4ff);
 }
 .bubbles .circle-wrapper:nth-child(6) .circle{
   height: 170px;
   width: 170px;
   inset: -304px -110px;
   font-size: 45px;
+  background: linear-gradient(45deg, #9967c0, #7189ff);
 }
 .bubbles .circle-wrapper:nth-child(7) .circle{
   height: 150px;
   width: 150px;
   inset: -227px 70px;
   font-size: 44px;
+  background: linear-gradient(45deg, #9967c0, #7189ff);
 }
 .bubbles .circle-wrapper:nth-child(8) .circle{
   height: 140px;
   width: 140px;
   inset: -169px 231px;
   font-size: 42px;
+  background: linear-gradient(45deg, #fd623c, #fa8b2f);
 }
 .bubbles .circle-wrapper:nth-child(9) .circle{
   height: 150px;
   width: 150px;
   inset: -74px -445px;
   font-size: 44px;
+  background: linear-gradient(45deg, #000000d1, black);
+  color: #fff;
 }
 .bubbles .circle-wrapper:nth-child(10) .circle{
   height: 140px;
   width: 140px;
   inset: 180px 95px;
   font-size: 42px;
+  background: linear-gradient(45deg, #97deec,#bdbaff);
 }
 .bubbles .circle-wrapper:nth-child(11) .circle{
   height: 130px;
   width: 130px;
   inset: 166px 253px;
   font-size: 39px;
+  background: linear-gradient(45deg, #93ceff,#0075d8);
 }
 .bubbles .circle-wrapper:nth-child(12) .circle{
   height: 100px;
   width: 100px;
   inset: -33px 336px;
   font-size: 35px;
+  background: linear-gradient(45deg, #fd782e, #feee43);
 }
 .bubbles .circle-wrapper:nth-child(13) .circle{
   height: 100px;
   width: 100px;
   inset: 218px -227px;
   font-size: 35px;
+  background: linear-gradient(45deg, #957bff,#e978ff);
 }
 .bubbles .circle-wrapper:nth-child(14) .circle{
   height: 100px;
   width: 100px;
   inset: 94px -424px;
   font-size: 35px;
+  background: linear-gradient(45deg, #87cbee, #2eb8a3);
 }
 .bubbles .circle-wrapper:nth-child(15) .circle{
   height: 100px;
   width: 100px;
   inset: -290px 220px;
   font-size: 35px;
+  background: linear-gradient(45deg, #ff6e3b, #ff79f2);
 }
 
 @media (max-width:900px) {

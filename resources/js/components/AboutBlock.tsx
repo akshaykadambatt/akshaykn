@@ -2,7 +2,8 @@ import * as React from 'react';
 import { NavLink } from "react-router-dom";
 import { Button, Navlink } from "../components/Button";
 import { createUseStyles, ThemeProvider, useTheme } from "react-jss";
-import { RiFacebookLine, RiInstagramLine, RiGithubLine } from "react-icons/ri";
+import { RiFacebookLine, RiInstagramLine, RiGithubLine, RiStackOverflowLine, RiWhatsappLine } from "react-icons/ri";
+import { AiOutlineLinkedin } from 'react-icons/ai';
 
 export default function AboutBlock() {
   const theme = {
@@ -13,24 +14,35 @@ export default function AboutBlock() {
     back: {
       display: "flex",
       justifyContent: "space-around",
-      alignItems: "flex-start"
+      alignItems: "flex-start",
+      "@media (max-width:600px)": {
+        flexDirection: "column",
+        alignItems: "center",
+      }
     },
     round: {
       // border: "1px solid #000",
-      height: "150px",
       aspectRatio: "1/1",
       marginTop: "10%",
-      minWidth: "150px",
-      borderRadius: "100px",
-      boxShadow:
-        "rgb(0 0 0 / 10%) 3px 3px 4px 2px,rgb(255 255 255 / 91%) -3px -3px 4px 2px,inset rgb(255 255 255 / 83%) 0 0 0 0, inset rgb(241 237 237 / 91%) 0 0 0 0"
+      height: "220px",
+      minWidth: "220px",
+      borderRadius: "100%",
+      background: "url('/images/akshay.jpg') top left/100% no-repeat",
+      boxShadow: "0 0 0 90px rgba(var(--main-color-hex),.05), 0 0 0 250px rgba(var(--main-color-hex),.05)",
+      // boxShadow:
+      //   "rgb(0 0 0 / 10%) 3px 3px 4px 2px,rgb(255 255 255 / 91%) -3px -3px 4px 2px,inset rgb(255 255 255 / 83%) 0 0 0 0, inset rgb(241 237 237 / 91%) 0 0 0 0",
+      "@media (max-width:600px)": {
+      }
     },
     text: {
       display: "flex",
       flexDirection: "column",
       maxWidth: "65%",
       margin: "0 0 0 5%",
-      alignItems: "flex-start"
+      alignItems: "flex-start",
+      "@media (max-width:600px)": {
+        maxWidth: "93%",
+      }
     },
     head: {
       marginBottom: "2px"
@@ -83,14 +95,17 @@ export default function AboutBlock() {
             aliqua.
           </p>
           <div className={classes.socials}>
-            <a href="#" className="reveal">
-              <RiFacebookLine />
+            <a href="https://www.linkedin.com/in/akshay-k-nair/" target="_blank" className="reveal" data-delay={0}>
+              <AiOutlineLinkedin />
             </a>
-            <a href="#" className="reveal">
-              <RiInstagramLine />
+            <a href="https://stackoverflow.com/users/7481663/akshay-k-nair" target="_blank" className="reveal" data-delay={60}>
+              <RiStackOverflowLine />
             </a>
-            <a href="#" className="reveal">
+            <a href="https://github.com/akshayknz" target="_blank" className="reveal" data-delay={100}>
               <RiGithubLine />
+            </a>
+            <a href="https://wa.me/%2B918301044114?text=Hello%20there%2C%20Akshay!" target="_blank" className="reveal" data-delay={230}>
+              <RiWhatsappLine />
             </a>
           </div>
           <Navlink to="/about" text="about" />
