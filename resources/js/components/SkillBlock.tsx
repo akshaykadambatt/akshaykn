@@ -3,13 +3,13 @@ import "../style.css";
 import * as React from 'react';
 import { createUseStyles } from "react-jss";
 import { useEffect, useState, FunctionComponent } from "react";
-import { RiReactjsFill } from "react-icons/ri";
-import { FaLaravel, FaWordpressSimple, FaPhp } from "react-icons/fa";
+import { RiReactjsFill, RiCss3Fill } from "react-icons/ri";
+import { FaLaravel, FaWordpressSimple, FaPhp, FaCcStripe } from "react-icons/fa";
 import { IoLogoJavascript, IoLogoElectron, IoLogoPython, IoLogoFirebase } from "react-icons/io5";
 import { GrMysql, GrHeroku } from "react-icons/gr";
 import { AiOutlineHtml5 } from "react-icons/ai";
 import { VscGithubAlt } from "react-icons/vsc";
-import { SiWebpack, SiLinux } from "react-icons/si";
+import { SiWebpack, SiLinux, SiWoocommerce, SiPagespeedinsights } from "react-icons/si";
 type AppProps = {
 };
 const SkillBlock:FunctionComponent<AppProps> = () => {
@@ -35,6 +35,10 @@ const SkillBlock:FunctionComponent<AppProps> = () => {
       <div className="circle-wrapper"><div className={`reveal circle`} data-delay={17} ><GrHeroku /></div></div>
       <div className="circle-wrapper"><div className={`reveal circle`} data-delay={19} ><SiWebpack /></div></div>
       <div className="circle-wrapper"><div className={`reveal circle`} data-delay={11} ><SiLinux /></div></div>
+      <div className="circle-wrapper"><div className={`reveal circle`} data-delay={11} ><SiPagespeedinsights /></div></div>
+      <div className="circle-wrapper"><div className={`reveal circle`} data-delay={11} ><SiWoocommerce /></div></div>
+      <div className="circle-wrapper"><div className={`reveal circle`} data-delay={11} ><RiCss3Fill /></div></div>
+      <div className="circle-wrapper"><div className={`reveal circle`} data-delay={11} ><FaCcStripe /></div></div>
     </div>
   );
 };

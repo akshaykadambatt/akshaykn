@@ -309,13 +309,12 @@ div:hover > .controls{
   width: 0;
 }
 .bubbles .circle-wrapper .circle{
-  border: 1px solid transparent;
   padding:10px;
+  color:#fff;
+  /* border: 1px solid #000; */
 }
 .bubbles .circle-wrapper .circle.active{
-  border: 0px solid var(--main-color);
   padding:0px;
-  color:#fff;
 }
 .bubbles .circle-wrapper .circle.active:hover{
   transform:scale(1.1);
@@ -326,11 +325,11 @@ div:hover > .controls{
   border: 1px solid var(--main-color);
   top: -115px;
   left: -115px;
-  font-weight: 700;
-  -webkit-text-stroke: 1px var(--main-color);
-  -webkit-text-fill-color: transparent;
   visibility: visible;
   opacity: 1;
+  color: var(--main-color);
+  font-size: x-large;
+  user-select: none;
 }
 .bubbles .circle-wrapper:nth-child(2) .circle{
   height: 200px;
@@ -338,6 +337,7 @@ div:hover > .controls{
   inset: -30px 122px;
   font-size: 50px;
   background: linear-gradient(45deg, #eb4b4b -20%, #ff2424 120%);
+  /* border-color: #ff2424; */
 }
 .bubbles .circle-wrapper:nth-child(3) .circle{
   height: 200px;
@@ -345,6 +345,7 @@ div:hover > .controls{
   inset: -218px -305px;
   font-size: 50px;
   background: linear-gradient(45deg, #c0ff23, #ead42d);
+  /* border-color: #ead42d; */
 }
 .bubbles .circle-wrapper:nth-child(4) .circle{
   height: 180px;
@@ -352,13 +353,15 @@ div:hover > .controls{
   inset: 132px -106px;
   font-size: 48px;
   background: linear-gradient(45deg, #6aeeaa,#6ad0ee);
+  /* border-color: #6ad0ee; */
 }
 .bubbles .circle-wrapper:nth-child(5) .circle{
   height: 200px;
   width: 200px;
   inset: 4px -308px;
   font-size: 50px;
-  background: linear-gradient(45deg, #5ba5e3, #5ed4ff);
+  background: linear-gradient(45deg, #5ba5e3, #7189ff);
+  /* border-color: #7189ff; */
 }
 .bubbles .circle-wrapper:nth-child(6) .circle{
   height: 170px;
@@ -366,6 +369,7 @@ div:hover > .controls{
   inset: -304px -110px;
   font-size: 45px;
   background: linear-gradient(45deg, #9967c0, #7189ff);
+  /* border-color: #7189ff; */
 }
 .bubbles .circle-wrapper:nth-child(7) .circle{
   height: 150px;
@@ -373,6 +377,7 @@ div:hover > .controls{
   inset: -227px 70px;
   font-size: 44px;
   background: linear-gradient(45deg, #9967c0, #7189ff);
+  /* border-color: #7189ff; */
 }
 .bubbles .circle-wrapper:nth-child(8) .circle{
   height: 140px;
@@ -380,6 +385,7 @@ div:hover > .controls{
   inset: -169px 231px;
   font-size: 42px;
   background: linear-gradient(45deg, #fd623c, #fa8b2f);
+  /* border-color: #fa8b2f; */
 }
 .bubbles .circle-wrapper:nth-child(9) .circle{
   height: 150px;
@@ -387,7 +393,7 @@ div:hover > .controls{
   inset: -74px -445px;
   font-size: 44px;
   background: linear-gradient(45deg, #000000d1, black);
-  color: #fff;
+  /* border-color: black; */
 }
 .bubbles .circle-wrapper:nth-child(10) .circle{
   height: 140px;
@@ -395,6 +401,7 @@ div:hover > .controls{
   inset: 180px 95px;
   font-size: 42px;
   background: linear-gradient(45deg, #97deec,#bdbaff);
+  /* border-color: #bdbaff; */
 }
 .bubbles .circle-wrapper:nth-child(11) .circle{
   height: 130px;
@@ -402,6 +409,7 @@ div:hover > .controls{
   inset: 166px 253px;
   font-size: 39px;
   background: linear-gradient(45deg, #93ceff,#0075d8);
+  /* border-color: #0075d8; */
 }
 .bubbles .circle-wrapper:nth-child(12) .circle{
   height: 100px;
@@ -409,6 +417,7 @@ div:hover > .controls{
   inset: -33px 336px;
   font-size: 35px;
   background: linear-gradient(45deg, #fd782e, #feee43);
+  /* border-color: #feee43; */
 }
 .bubbles .circle-wrapper:nth-child(13) .circle{
   height: 100px;
@@ -416,6 +425,7 @@ div:hover > .controls{
   inset: 218px -227px;
   font-size: 35px;
   background: linear-gradient(45deg, #957bff,#e978ff);
+  /* border-color: #e978ff; */
 }
 .bubbles .circle-wrapper:nth-child(14) .circle{
   height: 100px;
@@ -423,6 +433,7 @@ div:hover > .controls{
   inset: 94px -424px;
   font-size: 35px;
   background: linear-gradient(45deg, #87cbee, #2eb8a3);
+  /* border-color: #2eb8a3; */
 }
 .bubbles .circle-wrapper:nth-child(15) .circle{
   height: 100px;
@@ -430,6 +441,39 @@ div:hover > .controls{
   inset: -290px 220px;
   font-size: 35px;
   background: linear-gradient(45deg, #ff6e3b, #ff79f2);
+  /* border-color: #ff79f2; */
+}
+.bubbles .circle-wrapper:nth-child(16) .circle{
+  height: 100px;
+  width: 100px;
+  inset: -189px -422px;
+  font-size: 35px;
+  background: linear-gradient(45deg, #3b55ff, #ab79ff);
+  /* border-color: #ab79ff; */
+}
+.bubbles .circle-wrapper:nth-child(17) .circle{
+  height: 100px;
+  width: 100px;
+  inset: 78px 342px;
+  font-size: 67px;
+  background: linear-gradient(45deg, #7950aa,#b982fa);
+  /* border-color: #b982fa; */
+}
+.bubbles .circle-wrapper:nth-child(18) .circle{
+  height: 124px;
+  width: 124px;
+  inset: 199px -376px;
+  font-size: 35px;
+  background: linear-gradient(45deg, #3c67fa, #6c8cff);
+  /* border-color: #6c8cff; */
+}
+.bubbles .circle-wrapper:nth-child(19) .circle{
+  height: 84px;
+  width: 84px;
+  inset: -315px -202px;
+  font-size: 35px;
+  background: linear-gradient(45deg, #3c67fa, #6c8cff);
+  /* border-color: #6c8cff; */
 }
 
 @media (max-width:900px) {
@@ -524,98 +568,148 @@ div:hover > .controls{
     inset: -190px 171px;
     font-size: 35px;
   }
+  .bubbles .circle-wrapper:nth-child(16) .circle {
+    height: 75px;
+    width: 75px;
+    inset: -161px -301px;
+    font-size: 28px;
+  }
+  .bubbles .circle-wrapper:nth-child(17) .circle {
+    height: 72px;
+    width: 71px;
+    inset: 111px 210px;
+    font-size: 50px;
+  }
+  .bubbles .circle-wrapper:nth-child(18) .circle {
+    height: 85px;
+    width: 85px;
+    inset: 130px -274px;
+    font-size: 29px;
+  }
+  .bubbles .circle-wrapper:nth-child(19) .circle {
+    height: 70px;
+    width: 70px;
+    inset: -244px -159px;
+    font-size: 31px;
+}
 }
 
 @media (max-width:600px) {
   .bubbles .circle-wrapper:nth-child(1) .center.active{
-    height: 120px;
-    width: 120px;
+    height: 170px;
+    width: 170px;
     border: 1px solid var(--main-color);
-    top: -60px;
-    left: -60px;
+    top: -85px;
+    left: -85px;
+    font-size: 17px;
   }
   .bubbles .circle-wrapper:nth-child(2) .circle{
-    height: 90px;
-    width: 90px;
-    inset: -23px 68px;
-    font-size: 21px;
+    height: 105px;
+    width: 105px;
+    inset: 80px 34px;
+    font-size: 37px;
   }
   .bubbles .circle-wrapper:nth-child(3) .circle{
-    height: 90px;
-    width: 90px;
-    inset: -116px -135px;
-    font-size: 21px;
+    height: 105px;
+    width: 105px;
+    inset: -199px -118px;
+    font-size: 36px;
   }
   .bubbles .circle-wrapper:nth-child(4) .circle{
-    height: 80px;
-    width: 80px;
-    inset: 77px -66px;
-    font-size: 19px;
+    height: 105px;
+    width: 105px;
+    inset: 168px -85px;
+    font-size: 45px;
   }
   .bubbles .circle-wrapper:nth-child(5) .circle{
-    height: 90px;
-    width: 90px;
-    inset: -9px -158px;
-    font-size: 21px;
+    height: 95px;
+    width: 95px;
+    inset: 72px -137px;
+    font-size: 36px;
   }
   .bubbles .circle-wrapper:nth-child(6) .circle{
-    height: 90px;
-    width: 90px;
-    inset: -169px -46px;
-    font-size: 19px;
+    height: 100px;
+    width: 100px;
+    inset: -250px 40px;
+    font-size: 41px;
   }
   .bubbles .circle-wrapper:nth-child(7) .circle{
     height: 70px;
     width: 70px;
-    inset: -117px 44px;
-    font-size: 19px;
+    inset: -127px 60px;
+    font-size: 32px;
   }
   .bubbles .circle-wrapper:nth-child(8) .circle{
     height: 60px;
     width: 60px;
-    inset: -233px 1px;
-    font-size: 19px;
+    inset: -161px -4px;
+    font-size: 28px;
   }
   .bubbles .circle-wrapper:nth-child(9) .circle{
     height: 70px;
     width: 70px;
-    inset: -213px -116px;
+    inset: -283px -106px;
     font-size: 19px;
   }
   .bubbles .circle-wrapper:nth-child(10) .circle{
-    height: 60px;
-    width: 60px;
-    inset: 63px 27px;
-    font-size: 19px;
+    height: 70px;
+    width: 70px;
+    inset: -298px -28px;
+    font-size: 28px;
   }
   .bubbles .circle-wrapper:nth-child(11) .circle{
     height: 60px;
     width: 60px;
-    inset: 141px 11px;
-    font-size: 19px;
+    inset: 197px 37px;
+    font-size: 34px;
   }
   .bubbles .circle-wrapper:nth-child(12) .circle{
-    height: 40px;
-    width: 40px;
-    inset: -71px 122px;
-    font-size: 17px;
+    height: 60px;
+    width: 60px;
+    inset: 99px -35px;
+    font-size: 31px;
   }
   .bubbles .circle-wrapper:nth-child(13) .circle{
-    height: 40px;
-    width: 40px;
-    inset: 175px -46px;
-    font-size: 17px;
+    height: 50px;
+    width: 50px;
+    inset: -44px 91px;
+    font-size: 29px;
   }
   .bubbles .circle-wrapper:nth-child(14) .circle{
     height: 40px;
     width: 40px;
-    inset: 104px -121px;
-    font-size: 17px;
+    inset: 29px 87px;
+    font-size: 21px;
   }
   .bubbles .circle-wrapper:nth-child(15) .circle{
-    height: 40px;
-    width: 40px;
-    inset: -176px 53px;
-    font-size: 17px;
+    height: 50px;
+    width: 50px;
+    inset: 12px -142px;
+    font-size: 26px;
   }
+  .bubbles .circle-wrapper:nth-child(16) .circle {
+    height: 50px;
+    width: 50px;
+    inset: -85px -132px;
+    font-size: 27px;
+}
+.bubbles .circle-wrapper:nth-child(17) .circle {
+  height: 40px;
+  width: 40px;
+  inset: -211px -12px;
+  font-size: 28px;
+}
+.bubbles .circle-wrapper:nth-child(18) .circle {
+  height: 50px;
+    width: 50px;
+    inset: -310px 54px;
+    font-size: 30px;
+}
+.bubbles .circle-wrapper:nth-child(19) .circle {
+  height: 50px;
+  width: 50px;
+  inset: 263px 7px;
+  font-size: 29px;
+}
+
 }

@@ -15,7 +15,7 @@ class CreateSpaceTable extends Migration
     {
         Schema::create('space', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->index();
+            $table->unsignedBigInteger('user_id')->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->json('data');
             $table->timestamps();

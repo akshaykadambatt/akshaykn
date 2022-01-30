@@ -11,16 +11,18 @@ type Props = {
 const Space: React.FC<Props> = ( { setToken } ) => {
     const useStyles = createUseStyles({
         form: {
-          padding: "9vh 30vw 9vh 3vw",
           display: "block",
-          width: "320px",
-          overflow: "hidden"
+        //   width: "320px",
+          overflow: "hidden",
+          width: "400px"
         },
         formWrap: {
-            display: "flex",
+          padding: "9vh 70px 3vh 40px",
+          display: "flex",
             justifyContent: "center"
         },
         textInput: {
+            width: "94%",
             fontSize: "20px",
             fontFamily: "inherit",
             fontWeight: "300",
@@ -188,14 +190,14 @@ const Space: React.FC<Props> = ( { setToken } ) => {
         if(action=='register') return;
         e.preventDefault();
         removeErrorClass();
-        usernameInput.current!.focus();
+        // usernameInput.current!.focus();
         setAction('register');
     }
     function handleLogin(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         if(action=='login') return;
         e.preventDefault();
         removeErrorClass();
-        usernameInput.current!.focus();
+        // usernameInput.current!.focus();
         setAction('login');
     }
     useEffect(()=>{

@@ -1,7 +1,9 @@
 import { Box, Modal, Skeleton, Button } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Navlink } from "../../components/Button";
 import {AddItem, Blank} from "./Components";
+
 function Page() {
     const [addItem, setAddItem] = useState<boolean>(false);
     useEffect(()=>{
@@ -25,6 +27,7 @@ function Page() {
             <h2>Space</h2>
             <Skeleton animation="wave" variant="rectangular" width={210} height={118} />
             <Button onClick={handleAddItem}>Open modal</Button>
+            <Navlink to="/logout" text="logout" /> 
             <AddItem open={addItem} setOpen={setAddItem} />
         </>
     );

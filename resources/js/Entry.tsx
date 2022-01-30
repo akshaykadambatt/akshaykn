@@ -10,12 +10,15 @@ export default function Entry() {
   useEffect(() => {
     setTimeout(() => {
       setState(1);
-    }, 100); 
+    }, 0); 
   }, [state]);
   return (
     <div>
-      {state === 0 && <Preloader />}
-      {state === 1 && <><App /></>}
+      <App />
+      {//state === 0 && <Preloader />
+      }
+      {//state === 1 && <><App /></>
+      }
     </div>
   );
 }

@@ -47,6 +47,7 @@ const Home:FunctionComponent<AppProps> = () => {
             Hello there, I'm Akshay. I focus on making and keeping things simple. As a great man once said, simplicity is the ultimate sophistication.
           </p>
           <Navlink to="/works" text="works" />
+          <Navlink to="/works/projects/space" text="login" />
         </div>
       </div>
       <div className="container-no-margin">
